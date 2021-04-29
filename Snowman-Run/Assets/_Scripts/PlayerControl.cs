@@ -41,7 +41,6 @@ public class PlayerControl : MonoBehaviour
             {
                 if (Mathf.Abs(_currentPosTouth.x - _startPosTouth.x) > 0.05)
                 {
-                    Debug.Log(1);
                     _spherData.Move.MoveToAnotherRow((_currentPosTouth.x - _startPosTouth.x) > 0);
                 }
             }
