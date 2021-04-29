@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Snowman-Run/Library/
+Snowman-Run/obj/
+Snowman-Run/Temp/
