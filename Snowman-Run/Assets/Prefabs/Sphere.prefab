@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1978197541233608395}
+  _speedOfMovementInARow: 10
 --- !u!1 &8105728142168159656
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7daf3c272c4254f84e27187fe94221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedOfMovementInARow: 50
 --- !u!135 &1972793395544214266
 SphereCollider:
   m_ObjectHideFlags: 0
