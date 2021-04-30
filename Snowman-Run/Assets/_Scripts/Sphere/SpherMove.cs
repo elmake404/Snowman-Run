@@ -6,8 +6,6 @@ public class SpherMove : MonoBehaviour
 {
     private SpherData _spherData;
     private TrafficInspector _trafficInspector;
-    [SerializeField]
-    private float _speedOfMovementInARow=0.5f;
     void Awake()
     {
         _spherData = GetComponent<SpherData>();

@@ -9,6 +9,7 @@ public class TrafficInspector : MonoBehaviour
 
     [SerializeField]
     private List<Row> _rows = new List<Row>();
+    private List<SpherData> _additionalSphere = new List<SpherData>();
 
     private void Awake()
     {
@@ -18,6 +19,13 @@ public class TrafficInspector : MonoBehaviour
             _rows[i].InitializationNumber(i);
         }
     }
+    public void AddNewSpher(int row, SpherData spherData)
+    {
+        Vector3 posSpher = GetLocalPositionInRow(row, spherData.Radius);
+        AddSpherDats(row, spherData);
+        spherData.transform.localPosition = posSpher;
+    }
+
     public void AddSpherDats(int rowNumber, SpherData spher)
     {
         Transform parent = _rows[rowNumber].GetRowPrent();
@@ -26,6 +34,24 @@ public class TrafficInspector : MonoBehaviour
     }
     public Vector3 GetLocalPositionInRow(int rowNumber, float radius) 
         => _rows[rowNumber].GetLocalPosition(radius);
+    public Vector3 GetGlobalPositionRow(int rowNumber, float radius)
+     => _rows[rowNumber].transform.TransformPoint(_rows[rowNumber].GetLocalPosition(radius));
+    public void AddAdditionalSphere(SpherData sphere)
+        => _additionalSphere.Add(sphere);
+    public void RemoveAdditionalSphere(SpherData sphere)
+    => _additionalSphere.Remove(sphere);
+    public SpherData ContainsAdditionalSphere(GameObject sphere)
+    {
+        for (int i = 0; i < _additionalSphere.Count; i++)
+        {
+            if (_additionalSphere[i].gameObject==sphere)
+            {
+                return _additionalSphere[i];
+            }
+        }
+        return null;
+    }
+
     public bool CheckRow(int row)
     {
         return row >= 0 && row < _rows.Count;

@@ -724,8 +724,16 @@ MonoBehaviour:
     Count: 5
   - Row: 2
     Count: 0
+  _additionalSphere:
+  - Row: 1
+    ZPosition: 8.61
+  - Row: 2
+    ZPosition: 25.84
+  - Row: 0
+    ZPosition: 25.84
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
+  _trafficInspector: {fileID: 1940933769}
 --- !u!4 &2057360496
 Transform:
   m_ObjectHideFlags: 0

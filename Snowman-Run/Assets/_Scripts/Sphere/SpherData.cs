@@ -5,17 +5,15 @@ using UnityEngine;
 public class SpherData : MonoBehaviour
 {
     [SerializeField]
-    private Transform _modellesSpher;
+    private Spy _modellesSpher;
     [SerializeField]
     private SpherMove _spherMove;public SpherMove Move 
     { get { return _spherMove; } }
     public float Radius 
     
-    { get { return _modellesSpher.localScale.x / 2; } }
+    { get { return _modellesSpher.transform.localScale.x / 2; } }
     [HideInInspector]
     public int RowNumber;
-    private void Start()
-    {
-        _modellesSpher.SetParent(null);
-    }
+    public void StoodInARow()=> _modellesSpher.transform.SetParent(null);
+    public void OffsetRecordModel() => _modellesSpher.OffsetRecord();
 }
