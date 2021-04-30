@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _modellesSpher: {fileID: 8259508583193745075}
+  _colliderMain: {fileID: 1972793395544214266}
   _spherMove: {fileID: 2766662315674648649}
   RowNumber: 0
 --- !u!114 &2766662315674648649

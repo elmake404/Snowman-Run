@@ -11,6 +11,9 @@ public class TrafficInspector : MonoBehaviour
     private List<Row> _rows = new List<Row>();
     private List<SpherData> _additionalSphere = new List<SpherData>();
 
+    private void Update()
+    {
+    }
     private void Awake()
     {
         Instance = this;
@@ -19,6 +22,7 @@ public class TrafficInspector : MonoBehaviour
             _rows[i].InitializationNumber(i);
         }
     }
+    public void UpdateRowPosition(int Row) => _rows[Row].UpdateSpherPosition();
     public void AddNewSpher(int row, SpherData spherData)
     {
         Vector3 posSpher = GetLocalPositionInRow(row, spherData.Radius);

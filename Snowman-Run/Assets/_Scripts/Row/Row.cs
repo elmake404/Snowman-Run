@@ -19,11 +19,11 @@ public class Row : MonoBehaviour
             Vector3 posSpher = transform.position;
             for (int i = 0; i < _spherDatas.Count; i++)
             {
-                posSpher.y += _spherDatas[i].Radius*2;
+                posSpher.y += _spherDatas[i].Radius * 2;
             }
             posSpher.y += radius;
 
-            return _spherDatas[_spherDatas.Count-1].transform.InverseTransformPoint(posSpher);
+            return _spherDatas[_spherDatas.Count - 1].transform.InverseTransformPoint(posSpher);
         }
         else
         {
@@ -31,6 +31,19 @@ public class Row : MonoBehaviour
             posSpher.y += radius;
 
             return transform.InverseTransformPoint(posSpher);
+        }
+    }
+    public void UpdateSpherPosition()
+    {
+        Vector3 posSpher = transform.position;
+        Transform ParentSphere = transform;
+
+        for (int i = 0; i < _spherDatas.Count; i++)
+        {
+            posSpher.y += _spherDatas[i].Radius;
+            _spherDatas[i].transform.localPosition = ParentSphere.InverseTransformPoint(posSpher);
+            ParentSphere = _spherDatas[i].transform;
+            posSpher.y += _spherDatas[i].Radius;
         }
     }
     public void AddSpher(List<SpherData> spherDatas)
@@ -60,6 +73,5 @@ public class Row : MonoBehaviour
 
         return sphers;
     }
-
     public void InitializationNumber(int number) => RowNumber = number;
 }
