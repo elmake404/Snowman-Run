@@ -11,7 +11,8 @@ public class Row : MonoBehaviour
     {
         get; private set;
     }
-    public Transform GetRowPrent() => _spherDatas.Count > 0 ? _spherDatas[_spherDatas.Count - 1].transform : transform;
+    public Transform GetRowLastPrent() => _spherDatas.Count > 0 ? _spherDatas[_spherDatas.Count - 1].transform : transform;
+    public Transform GetRowParent(int number) => number <= 0 ? transform : _spherDatas[number - 1].transform;
     public Vector3 GetLocalPosition(float radius)
     {
         if (_spherDatas.Count > 0)
@@ -72,6 +73,16 @@ public class Row : MonoBehaviour
             sphers.Add(spher);
 
         return sphers;
+    }
+    public void RemoveSpher(SpherData spher) 
+    {
+        int index = _spherDatas.IndexOf(spher);
+        _spherDatas.Remove(spher);
+        for (int i = index; i < _spherDatas.Count; i++)
+        {
+            _spherDatas[i].transform.SetParent(GetRowParent(i));
+        }
+
     }
     public void InitializationNumber(int number) => RowNumber = number;
 }
