@@ -32,7 +32,6 @@ public class PlayerControl : MonoBehaviour
             else if (touch.phase ==  TouchPhase.Moved)
             {
                 _currentPosTouth = _cam.ScreenToViewportPoint(touch.position);
-
             }
         }
         else

@@ -26,6 +26,8 @@ public class SpherMove : MonoBehaviour
     }
     public void MoveToAnotherRow(bool right)
     {
+        if (!_spherData.IsRow) return;
+
         int row = right ? 1 : -1;
         row += _spherData.RowNumber;
         if (_trafficInspector.CheckRow(row))

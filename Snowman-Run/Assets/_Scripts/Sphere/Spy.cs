@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spy : MonoBehaviour
 {
     [SerializeField]
-    private SpherData _spher;
+    private SphereLife _spher;
     private Transform _target 
     { get { return _spher.transform; } }
     private Vector3 _offset;

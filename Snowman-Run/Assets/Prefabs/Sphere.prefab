@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b0466e534816c49807999af701a265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spher: {fileID: 7073913076210850574}
+  _spher: {fileID: 5012335017280549395}
   _speedOfMovementInARow: 10
 --- !u!1 &8105728142168159656
 GameObject:
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _modellesSpher: {fileID: 8259508583193745075}
   _colliderMain: {fileID: 1972793395544214266}
+  _sphereLife: {fileID: 5012335017280549395}
   _spherMove: {fileID: 2766662315674648649}
   _radiusData:
     Min: 0.3

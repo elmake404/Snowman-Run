@@ -44,7 +44,9 @@ public class TrafficInspector : MonoBehaviour
         => _additionalSphere.Add(sphere);
     public void RemoveAdditionalSphere(SpherData sphere)
     => _additionalSphere.Remove(sphere);
-    public SpherData ContainsAdditionalSphere(GameObject sphere)
+    public bool ContainsAdditionalSphere(SpherData sphere) 
+        => _additionalSphere.Contains(sphere);
+    public SpherData GetAdditionalSphere(GameObject sphere)
     {
         for (int i = 0; i < _additionalSphere.Count; i++)
         {
@@ -55,7 +57,6 @@ public class TrafficInspector : MonoBehaviour
         }
         return null;
     }
-
     public bool CheckRow(int row)
     {
         return row >= 0 && row < _rows.Count;
