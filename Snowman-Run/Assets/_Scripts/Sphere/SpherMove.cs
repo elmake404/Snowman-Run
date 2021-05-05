@@ -6,6 +6,8 @@ public class SpherMove : MonoBehaviour
 {
     private SpherData _spherData;
     private TrafficInspector _trafficInspector;
+    [SerializeField]
+    private Rigidbody _rbMain;
     void Awake()
     {
         _spherData = GetComponent<SpherData>();
@@ -15,9 +17,12 @@ public class SpherMove : MonoBehaviour
         _trafficInspector = TrafficInspector.Instance;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-
+        if (_rbMain.velocity.y>0)
+        {
+            _rbMain.velocity = Vector3.Slerp(_rbMain.velocity,Vector3.zero,0.5f);
+        }
     }
     public void MoveToAnotherRow(bool right)
     {

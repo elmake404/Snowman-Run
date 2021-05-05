@@ -30,9 +30,9 @@ public class SpherData : MonoBehaviour
 
     public void StoodInARow()=> _modellesSpher.transform.SetParent(null);
     public void OffsetRecordModel() => _modellesSpher.OffsetRecord();
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        SpherData spher = TrafficInspector.Instance.ContainsAdditionalSphere(other.gameObject);
+        SpherData spher = TrafficInspector.Instance.ContainsAdditionalSphere(collision.gameObject);
         if (spher != null)
         {
             spher.StoodInARow();
@@ -41,6 +41,7 @@ public class SpherData : MonoBehaviour
             spher.OffsetRecordModel();
             TrafficInspector.Instance.RemoveAdditionalSphere(spher);
         }
+
     }
     private void OnTriggerStay(Collider other)
     {
