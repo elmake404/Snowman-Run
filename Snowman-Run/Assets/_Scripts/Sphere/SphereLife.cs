@@ -29,6 +29,18 @@ public class SphereLife : MonoBehaviour
         {
             Death();
         }
+
+        var barrier = other.GetComponent<Barrier>();
+
+        if (barrier!=null)
+        {
+            KnockedOutOfTheRow();
+        }
+    }
+    private void KnockedOutOfTheRow()
+    {
+        TrafficInspector.Instance.RemoveSpher(_spherData.RowNumber, _spherData);
+        _spherData.Move.RigidbodyConstraintsNone();
     }
     public void Death()
     {

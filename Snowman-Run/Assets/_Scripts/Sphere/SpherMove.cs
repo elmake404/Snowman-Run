@@ -19,9 +19,9 @@ public class SpherMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (_rbMain.velocity.y>0)
+        if (_rbMain.velocity.y > 0)
         {
-            _rbMain.velocity = Vector3.Slerp(_rbMain.velocity,Vector3.zero,0.5f);
+            _rbMain.velocity = Vector3.Slerp(_rbMain.velocity, Vector3.zero, 0.5f);
         }
     }
     public void MoveToAnotherRow(bool right)
@@ -36,5 +36,9 @@ public class SpherMove : MonoBehaviour
             TrafficInspector.Instance.AddSpherDats(row, _spherData);
             transform.localPosition = posSpher;
         }
+    }
+    public void RigidbodyConstraintsNone()
+    {
+        _rbMain.constraints = RigidbodyConstraints.None;
     }
 }

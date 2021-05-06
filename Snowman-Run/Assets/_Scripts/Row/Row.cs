@@ -76,13 +76,15 @@ public class Row : MonoBehaviour
     }
     public void RemoveSpher(SpherData spher) 
     {
+        if (!_spherDatas.Contains(spher)) return;
+
         int index = _spherDatas.IndexOf(spher);
         _spherDatas.Remove(spher);
+        spher.transform.SetParent(null);
         for (int i = index; i < _spherDatas.Count; i++)
         {
             _spherDatas[i].transform.SetParent(GetRowParent(i));
         }
-
     }
     public void InitializationNumber(int number) => RowNumber = number;
 }
