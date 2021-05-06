@@ -11,9 +11,6 @@ public class TrafficInspector : MonoBehaviour
     private List<Row> _rows = new List<Row>();
     private List<SpherData> _additionalSphere = new List<SpherData>();
 
-    private void Update()
-    {
-    }
     private void Awake()
     {
         Instance = this;
@@ -36,27 +33,39 @@ public class TrafficInspector : MonoBehaviour
         spher.transform.SetParent(parent);
         _rows[rowNumber].AddSpher(_rows[spher.RowNumber].GetHigherSpheres(spher));
     }
+    public void AddAdditionalSphere(SpherData sphere)
+    => _additionalSphere.Add(sphere);
+    public void RemoveAdditionalSphere(SpherData sphere)
+    => _additionalSphere.Remove(sphere);
     public Vector3 GetLocalPositionInRow(int rowNumber, float radius) 
         => _rows[rowNumber].GetLocalPosition(radius);
     public Vector3 GetGlobalPositionRow(int rowNumber, float radius)
      => _rows[rowNumber].transform.TransformPoint(_rows[rowNumber].GetLocalPosition(radius));
-    public void AddAdditionalSphere(SpherData sphere)
-        => _additionalSphere.Add(sphere);
-    public void RemoveAdditionalSphere(SpherData sphere)
-    => _additionalSphere.Remove(sphere);
-    public bool ContainsAdditionalSphere(SpherData sphere) 
-        => _additionalSphere.Contains(sphere);
     public SpherData GetAdditionalSphere(GameObject sphere)
     {
         for (int i = 0; i < _additionalSphere.Count; i++)
         {
-            if (_additionalSphere[i].gameObject==sphere)
+            if (_additionalSphere[i].gameObject == sphere)
             {
                 return _additionalSphere[i];
             }
         }
         return null;
     }
+    public bool CheckingSeriesForExistence(int number) 
+        => number >= 0 && number < _rows.Count;
+    public bool ContainsRow(SpherData sphere)
+    {
+        for (int i = 0; i < _rows.Count; i++)
+        {
+            if (_rows[i].ConteinsSpher(sphere))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public bool RowIsOnTheGround(int number) => _rows[number].IsOnGround;
     public bool CheckRow(int row)
     {
         return row >= 0 && row < _rows.Count;

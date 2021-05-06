@@ -6,7 +6,22 @@ public class Row : MonoBehaviour
 {
     [SerializeField]
     private List<SpherData> _spherDatas = new List<SpherData>();
-
+    private List<GameObject> _ethers = new List<GameObject>();
+    public bool IsOnGround { get { return _ethers.Count > 0; } }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer==8)
+        {
+            if (!_ethers.Contains(other.gameObject)) _ethers.Add(other.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (_ethers.Contains(other.gameObject))
+        {
+            _ethers.Remove(other.gameObject);
+        }
+    }
     public int RowNumber
     {
         get; private set;
@@ -86,5 +101,6 @@ public class Row : MonoBehaviour
             _spherDatas[i].transform.SetParent(GetRowParent(i));
         }
     }
+    public bool ConteinsSpher(SpherData spher) => _spherDatas.Contains(spher);
     public void InitializationNumber(int number) => RowNumber = number;
 }

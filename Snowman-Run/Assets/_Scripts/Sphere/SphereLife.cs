@@ -32,15 +32,21 @@ public class SphereLife : MonoBehaviour
 
         var barrier = other.GetComponent<Barrier>();
 
-        if (barrier!=null)
+        if (barrier != null)
         {
-            KnockedOutOfTheRow();
+            StartCoroutine(KnockedOutOfTheRow());
         }
     }
-    private void KnockedOutOfTheRow()
+    private IEnumerator KnockedOutOfTheRow()
     {
         TrafficInspector.Instance.RemoveSpher(_spherData.RowNumber, _spherData);
         _spherData.Move.RigidbodyConstraintsNone();
+
+        yield return new WaitForSeconds(1);
+
+        Died?.Invoke();
+        Destroy(gameObject);
+
     }
     public void Death()
     {

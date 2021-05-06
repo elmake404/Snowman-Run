@@ -26,10 +26,14 @@ public class SpherMove : MonoBehaviour
     }
     public void MoveToAnotherRow(bool right)
     {
-        if (!_spherData.IsRow) return;
-
         int row = right ? 1 : -1;
         row += _spherData.RowNumber;
+
+        if (!_spherData.IsRow
+            || !TrafficInspector.Instance.CheckingSeriesForExistence(row)
+            || !TrafficInspector.Instance.RowIsOnTheGround(row)) 
+            return;
+
         if (_trafficInspector.CheckRow(row))
         {
             Vector3 posSpher = TrafficInspector.Instance.GetLocalPositionInRow(row, _spherData.Radius);

@@ -416,8 +416,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.486036, y: 1, z: 55.618034}
-  m_Center: {x: -0.34990215, y: 0, z: 8.617123}
+  m_Size: {x: 12.486036, y: 1, z: 82.17624}
+  m_Center: {x: -0.34990215, y: 0, z: 21.896225}
 --- !u!4 &938429498
 Transform:
   m_ObjectHideFlags: 0
@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 1583030312}
   - component: {fileID: 1583030311}
   - component: {fileID: 1583030310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 1715543437}
   - component: {fileID: 1715543436}
   - component: {fileID: 1715543435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 1747871724}
   - component: {fileID: 1747871723}
   - component: {fileID: 1747871722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 2013810237}
   - component: {fileID: 2013810236}
   - component: {fileID: 2013810235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

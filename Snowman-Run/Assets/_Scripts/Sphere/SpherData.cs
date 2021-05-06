@@ -22,15 +22,15 @@ public class SpherData : MonoBehaviour
 
     [SerializeField]
     private MinMax _radiusData;
-    public float Radius 
-    
+    public float Radius
+
     { get { return _modellesSpher.transform.localScale.x / 2; } }
     [HideInInspector]
     public int RowNumber;
-    public bool IsRow 
-    { get { return !TrafficInspector.Instance.ContainsAdditionalSphere(this); } }
+    public bool IsRow
+    { get { return TrafficInspector.Instance.ContainsRow(this) && TrafficInspector.Instance.RowIsOnTheGround(RowNumber); } }
 
-    public void StoodInARow()=> _modellesSpher.transform.SetParent(null);
+    public void StoodInARow() => _modellesSpher.transform.SetParent(null);
     public void OffsetRecordModel() => _modellesSpher.OffsetRecord();
     private void OnTriggerStay(Collider other)
     {
@@ -53,7 +53,7 @@ public class SpherData : MonoBehaviour
         }
         else if (_modellesSpher.transform.localScale.x < _radiusData.Min)
         {
-           _sphereLife.Death();
+            _sphereLife.Death();
         }
 
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
