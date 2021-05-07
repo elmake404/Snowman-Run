@@ -11,9 +11,11 @@ public struct MinMax
 public class SpherData : MonoBehaviour
 {
     [SerializeField]
-    private Spy _modellesSpher;
+    private Spy _objSpher;
     [SerializeField]
     private SphereCollider _colliderMain;
+    [SerializeField]
+    private ModelSpher _modelSpher;
     [SerializeField]
     private SphereLife _sphereLife;
     [SerializeField]
@@ -24,14 +26,14 @@ public class SpherData : MonoBehaviour
     private MinMax _radiusData;
     public float Radius
 
-    { get { return _modellesSpher.transform.localScale.x / 2; } }
+    { get { return _objSpher.transform.localScale.x / 2; } }
     [HideInInspector]
     public int RowNumber;
     public bool IsRow
     { get { return TrafficInspector.Instance.ContainsRow(this) && TrafficInspector.Instance.RowIsOnTheGround(RowNumber); } }
 
-    public void StoodInARow() => _modellesSpher.transform.SetParent(null);
-    public void OffsetRecordModel() => _modellesSpher.OffsetRecord();
+    public void StoodInARow() => _objSpher.transform.SetParent(null);
+    public void OffsetRecordModel() => _objSpher.OffsetRecord();
     private void OnTriggerStay(Collider other)
     {
         if (IsRow)
@@ -45,17 +47,20 @@ public class SpherData : MonoBehaviour
     }
     private void ChangeOfSize(float addedSize)
     {
-        _modellesSpher.transform.localScale += Vector3.one * addedSize;
+        _objSpher.transform.localScale += Vector3.one * addedSize;
         _colliderMain.radius = Radius;
-        if (_modellesSpher.transform.localScale.x > _radiusData.Max)
+        if (_objSpher.transform.localScale.x > _radiusData.Max)
         {
-            _modellesSpher.transform.localScale = Vector3.one * _radiusData.Max;
+            _objSpher.transform.localScale = Vector3.one * _radiusData.Max;
         }
-        else if (_modellesSpher.transform.localScale.x < _radiusData.Min)
+        else if (_objSpher.transform.localScale.x < _radiusData.Min)
         {
             _sphereLife.Death();
         }
 
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
     }
+    public void SelectionModel(int CountSpher, int IndexSpher) 
+        => _modelSpher.SelectionModel(CountSpher, IndexSpher);
+
 }

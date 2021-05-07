@@ -29,9 +29,12 @@ public class TrafficInspector : MonoBehaviour
     public void RemoveSpher(int row, SpherData spherData) => _rows[row].RemoveSpher(spherData);
     public void AddSpherDats(int rowNumber, SpherData spher)
     {
+        int oldRowNumber = spher.RowNumber;
         Transform parent = _rows[rowNumber].GetRowLastPrent();
         spher.transform.SetParent(parent);
-        _rows[rowNumber].AddSpher(_rows[spher.RowNumber].GetHigherSpheres(spher));
+        _rows[rowNumber].AddSpher(_rows[oldRowNumber].GetHigherSpheres(spher));
+        _rows[rowNumber].ModelChange();
+        _rows[oldRowNumber].ModelChange();
     }
     public void AddAdditionalSphere(SpherData sphere)
     => _additionalSphere.Add(sphere);
