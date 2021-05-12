@@ -16,10 +16,9 @@ public class SpherMove : MonoBehaviour
     {
         _trafficInspector = TrafficInspector.Instance;
     }
-
     void FixedUpdate()
     {
-        if (_rbMain.velocity.y > 0)
+        if (_rbMain.velocity.y > 0 && transform.position.y> _trafficInspector.GetGlobalPositionRow(_spherData.RowNumber,_spherData.Radius).y)
         {
             _rbMain.velocity = Vector3.Slerp(_rbMain.velocity, Vector3.zero, 0.5f);
         }
@@ -31,7 +30,7 @@ public class SpherMove : MonoBehaviour
 
         if (!_spherData.IsRow
             || !TrafficInspector.Instance.CheckingSeriesForExistence(row)
-            || !TrafficInspector.Instance.RowIsOnTheGround(row)) 
+            || !TrafficInspector.Instance.RowIsOnTheGround(row))
             return;
 
         if (_trafficInspector.CheckRow(row))

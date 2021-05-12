@@ -15,37 +15,39 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (TouchUtility.TouchCount>0)
+        if (GameStage.IsGameFlowe)
         {
-            Touch touch = TouchUtility.GetTouch(0);
-            RaycastHit hit;
-
-            if (touch.phase == TouchPhase.Began)
+            if (TouchUtility.TouchCount > 0)
             {
-                _startPosTouth =_cam.ScreenToViewportPoint( touch.position);
-                Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray,out hit))
+                Touch touch = TouchUtility.GetTouch(0);
+                RaycastHit hit;
+
+                if (touch.phase == TouchPhase.Began)
                 {
-                    _spherData = hit.collider.GetComponent<SpherData>();
+                    _startPosTouth = _cam.ScreenToViewportPoint(touch.position);
+                    Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        _spherData = hit.collider.GetComponent<SpherData>();
+                    }
+                }
+                else if (touch.phase == TouchPhase.Moved)
+                {
+                    _currentPosTouth = _cam.ScreenToViewportPoint(touch.position);
                 }
             }
-            else if (touch.phase ==  TouchPhase.Moved)
+            else
             {
-                _currentPosTouth = _cam.ScreenToViewportPoint(touch.position);
-            }
-        }
-        else
-        {
-            if (_spherData != null)
-            {
-                if (Mathf.Abs(_currentPosTouth.x - _startPosTouth.x) > 0.05)
+                if (_spherData != null)
                 {
-                    _spherData.Move.MoveToAnotherRow((_currentPosTouth.x - _startPosTouth.x) > 0);
+                    if (Mathf.Abs(_currentPosTouth.x - _startPosTouth.x) > 0.05)
+                    {
+                        _spherData.Move.MoveToAnotherRow((_currentPosTouth.x - _startPosTouth.x) > 0);
+                    }
                 }
+
+                _spherData = null;
             }
-
-            _spherData = null;
-
         }
     }
 }

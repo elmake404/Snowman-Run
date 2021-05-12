@@ -11,6 +11,16 @@ public class TrafficInspector : MonoBehaviour
     private List<Row> _rows = new List<Row>();
     private List<SpherData> _additionalSphere = new List<SpherData>();
 
+    private int _numberOfSpheresInTheGame { get 
+        {
+            int count = 0;
+            for (int i = 0; i < _rows.Count; i++)
+            {
+               count+= _rows[i].GetCountSpher();
+            }
+            return count;
+        } }
+
     private void Awake()
     {
         Instance = this;
@@ -26,7 +36,14 @@ public class TrafficInspector : MonoBehaviour
         AddSpherDats(row, spherData);
         spherData.transform.localPosition = posSpher;
     }
-    public void RemoveSpher(int row, SpherData spherData) => _rows[row].RemoveSpher(spherData);
+    public void RemoveSpher(int row, SpherData spherData)
+    {
+        _rows[row].RemoveSpher(spherData);
+        if(_numberOfSpheresInTheGame<=0)
+        {
+            GameStage.Instance.ChangeStage(Stage.LostGame);
+        }
+    }
     public void AddSpherDats(int rowNumber, SpherData spher)
     {
         int oldRowNumber = spher.RowNumber;
@@ -68,7 +85,8 @@ public class TrafficInspector : MonoBehaviour
         }
         return false;
     }
-    public bool RowIsOnTheGround(int number) => _rows[number].IsOnGround;
+    public bool RowIsOnTheGround(int number) 
+        => _rows[number].IsOnGround;
     public bool CheckRow(int row)
     {
         return row >= 0 && row < _rows.Count;

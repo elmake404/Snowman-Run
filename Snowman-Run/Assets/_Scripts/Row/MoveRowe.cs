@@ -14,6 +14,7 @@ public class MoveRowe : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(GameStage.IsGameFlowe)
         transform.Translate(Vector3.forward*_speed);
     }
 }

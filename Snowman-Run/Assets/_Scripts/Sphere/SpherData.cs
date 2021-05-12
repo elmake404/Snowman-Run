@@ -13,6 +13,8 @@ public class SpherData : MonoBehaviour
     [SerializeField]
     private Spy _objSpher;
     [SerializeField]
+    private ParticleSystem _steem;
+    [SerializeField]
     private SphereCollider _colliderMain;
     [SerializeField]
     private ModelSpher _modelSpher;
@@ -31,7 +33,6 @@ public class SpherData : MonoBehaviour
     public int RowNumber;
     public bool IsRow
     { get { return TrafficInspector.Instance.ContainsRow(this) && TrafficInspector.Instance.RowIsOnTheGround(RowNumber); } }
-
     public void StoodInARow() => _objSpher.transform.SetParent(null);
     public void OffsetRecordModel() => _objSpher.OffsetRecord();
     private void OnTriggerStay(Collider other)
@@ -42,6 +43,7 @@ public class SpherData : MonoBehaviour
             if (Changer != null)
             {
                 ChangeOfSize(Changer.AddedVolume);
+                Changer.Deform(this);
             }
         }
     }
@@ -62,5 +64,4 @@ public class SpherData : MonoBehaviour
     }
     public void SelectionModel(int CountSpher, int IndexSpher) 
         => _modelSpher.SelectionModel(CountSpher, IndexSpher);
-
 }

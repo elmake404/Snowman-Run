@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Row : MonoBehaviour
 {
-    [SerializeField]
     private List<SpherData> _spherDatas = new List<SpherData>();
     private List<GameObject> _ethers = new List<GameObject>();
     public bool IsOnGround { get { return _ethers.Count > 0; } }
@@ -49,6 +48,27 @@ public class Row : MonoBehaviour
             return transform.InverseTransformPoint(posSpher);
         }
     }
+    public List<SpherData> GetHigherSpheres(SpherData spher)
+    {
+        List<SpherData> sphers = new List<SpherData>();
+        //sphers.Add(spher);
+        if (_spherDatas.Contains(spher))
+        {
+            int numberSpher = _spherDatas.IndexOf(spher);
+
+            for (int i = numberSpher; i < _spherDatas.Count; i++)
+            {
+                sphers.Add(_spherDatas[i]);
+            }
+            _spherDatas.RemoveRange(numberSpher, _spherDatas.Count - numberSpher);
+        }
+        else
+            sphers.Add(spher);
+
+        return sphers;
+    }
+    public int GetCountSpher()
+        => _spherDatas.Count;
     public void UpdateSpherPosition()
     {
         Vector3 posSpher = transform.position;
@@ -70,25 +90,6 @@ public class Row : MonoBehaviour
         }
         _spherDatas.AddRange(spherDatas);
     }
-    public List<SpherData> GetHigherSpheres(SpherData spher)
-    {
-        List<SpherData> sphers = new List<SpherData>();
-        //sphers.Add(spher);
-        if (_spherDatas.Contains(spher))
-        {
-            int numberSpher = _spherDatas.IndexOf(spher);
-
-            for (int i = numberSpher; i < _spherDatas.Count; i++)
-            {
-                sphers.Add(_spherDatas[i]);
-            }
-            _spherDatas.RemoveRange(numberSpher, _spherDatas.Count - numberSpher);
-        }
-        else
-            sphers.Add(spher);
-
-        return sphers;
-    }
     public void RemoveSpher(SpherData spher) 
     {
         if (!_spherDatas.Contains(spher)) return;
@@ -100,6 +101,7 @@ public class Row : MonoBehaviour
         {
             _spherDatas[i].transform.SetParent(GetRowParent(i));
         }
+        if(IsOnGround)
         ModelChange();
     }
     public bool ConteinsSpher(SpherData spher) => _spherDatas.Contains(spher);
@@ -111,4 +113,5 @@ public class Row : MonoBehaviour
             _spherDatas[i].SelectionModel(_spherDatas.Count-1,i);
         }
     }
+
 }
