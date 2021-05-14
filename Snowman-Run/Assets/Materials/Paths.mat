@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Paths
-  m_Shader: {fileID: 4800000, guid: aa1bc5fabcb75a340ad3528d689d735d, type: 3}
+  m_Shader: {fileID: 4800000, guid: b5fb7cbf5f5654dedaf7fe28e8302008, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -64,6 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOFactor: 1
     - _BorderWidth: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -76,10 +77,12 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TextureVisibility: 0
+    - _Transparency: 0.2
     - _UVSec: 0
     - _ZWrite: 1
     - _fogDeep: 22.23
@@ -89,8 +92,11 @@ Material:
     m_Colors:
     - _BorderColor: {r: 0.43137258, g: 1, b: 0.6901961, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorMain: {r: 1, g: 1, b: 1, a: 1}
     - _DistTiling: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MidColor: {r: 1, g: 1, b: 1, a: 1}
     - _MoveDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 1, g: 1, b: 1, a: 1}
     - _fogColor: {r: 1, g: 1, b: 1, a: 1}

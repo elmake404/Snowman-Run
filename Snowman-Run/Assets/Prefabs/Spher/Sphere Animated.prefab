@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6279961902315301275}
   - component: {fileID: 5639095047723633013}
   m_Layer: 0
-  m_Name: snow-sphere
+  m_Name: Sphere Animated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

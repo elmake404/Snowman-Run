@@ -79,7 +79,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureVisibility: 0
+    - _TextureVisibility: 1
     - _UVSec: 0
     - _ZWrite: 1
     - _fogDeep: 22.23
@@ -88,9 +88,9 @@ Material:
     - _fogMinAlpha: 0
     m_Colors:
     - _BorderColor: {r: 0.43137258, g: 1, b: 0.6901961, a: 1}
-    - _Color: {r: 0.023529414, g: 0.7490196, b: 0.6039216, a: 1}
+    - _Color: {r: 1, g: 0.5690597, b: 0, a: 1}
     - _DistTiling: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MoveDirection: {r: 0, g: 0, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 1, a: 1}
-    - _fogColor: {r: 0.43137258, g: 1, b: 0.6901961, a: 1}
+    - _fogColor: {r: 0.9607844, g: 0.8235295, b: 0.24705884, a: 1}
