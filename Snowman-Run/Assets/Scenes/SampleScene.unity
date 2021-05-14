@@ -134,11 +134,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2720504350885927254, guid: 364b89e3a5207a64faed6066db7b55f0,
-        type: 3}
-      propertyPath: _addedVolume
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4025889526517947875, guid: 364b89e3a5207a64faed6066db7b55f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1333,11 +1328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startSpawn:
   - Row: 0
-    Count: 0
+    Count: 3
   - Row: 1
     Count: 5
   - Row: 2
-    Count: 0
+    Count: 5
   _additionalSphere:
   - Row: 1
     ZPosition: 28.95

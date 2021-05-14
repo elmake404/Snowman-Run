@@ -38,7 +38,7 @@ public class SpawnerSpher : MonoBehaviour
             positionSpher.z += _additionalSphere[i].ZPosition;
 
             SpherData spher = Instantiate(_spherDataPrefabs, positionSpher, Quaternion.identity);
-            spher.RowNumber = _startSpawn[i].Row;
+            spher.RowNumber = _additionalSphere[i].Row;
             _trafficInspector.AddAdditionalSphere(spher);
         }
 
