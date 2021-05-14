@@ -71,6 +71,9 @@ public class SpherData : MonoBehaviour
         }
         else if (_objSpher.transform.localScale.x < _radiusData.Min)
         {
+            _steem.transform.SetParent(null);
+            _steem.Stop();
+
             _sphereLife.Death();
         }
 

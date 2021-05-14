@@ -69,6 +69,7 @@ public class Row : MonoBehaviour
     }
     public int GetCountSpher()
         => _spherDatas.Count;
+    public int IndexOf(SpherData spher) => _spherDatas.IndexOf(spher);
     public void UpdateSpherPosition()
     {
         Vector3 posSpher = transform.position;
@@ -113,5 +114,6 @@ public class Row : MonoBehaviour
             _spherDatas[i].SelectionModel(_spherDatas.Count-1,i);
         }
     }
+
 
 }

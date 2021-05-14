@@ -72,6 +72,7 @@ public class TrafficInspector : MonoBehaviour
         }
         return null;
     }
+    public int GetIndexSpher(int row, SpherData spherData) => _rows[row].IndexOf(spherData);
     public bool CheckingSeriesForExistence(int number) 
         => number >= 0 && number < _rows.Count;
     public bool ContainsRow(SpherData sphere)

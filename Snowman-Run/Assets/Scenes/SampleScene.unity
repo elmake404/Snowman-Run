@@ -197,7 +197,7 @@ PrefabInstance:
     - target: {fileID: 4025889526517947879, guid: 364b89e3a5207a64faed6066db7b55f0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 364b89e3a5207a64faed6066db7b55f0, type: 3}
@@ -1335,9 +1335,9 @@ MonoBehaviour:
   - Row: 0
     Count: 3
   - Row: 1
-    Count: 5
+    Count: 0
   - Row: 2
-    Count: 5
+    Count: 0
   _additionalSphere:
   - Row: 1
     ZPosition: 28.95

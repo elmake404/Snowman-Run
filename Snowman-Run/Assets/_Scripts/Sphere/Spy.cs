@@ -6,22 +6,22 @@ public class Spy : MonoBehaviour
 {
     [SerializeField]
     private SphereLife _spher;
-    private Transform _target 
+    private Transform _target
     { get { return _spher.transform; } }
     private Vector3 _offset;
     [SerializeField]
     private float _speedOfMovementInARow = 50f;
     private void Awake()
     {
-        _spher.Died+=Death;
+        _spher.Died += Death;
     }
     void LateUpdate()
     {
         if (transform.parent != _target)
         {
             Vector3 newPos = transform.position;
-            newPos.z = _target.position.z-_offset.z;
-            transform.SetPositionAndRotation(newPos, _target.rotation);
+            newPos.z = _target.position.z - _offset.z;
+            transform.position = (newPos);
             MoveSpher();
         }
     }

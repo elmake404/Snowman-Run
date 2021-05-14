@@ -19,6 +19,9 @@ public class ModelSpher : MonoBehaviour
     [SerializeField]
     private GameObject _activeModel;
     private GameObject _activeSphere;
+
+    [SerializeField]
+    private float _speedRotation;
     private void Start()
     {
         if (_activeModel == null)
@@ -28,15 +31,10 @@ public class ModelSpher : MonoBehaviour
         }
         _activeModel.SetActive(true);
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&& _spherData.IsRow)
-        {
-            Debug.Log(_spherData.transform.position);
-            Debug.Log(_spherData.IsRow);
-            Debug.Log(_inactiveModel.activeSelf);
-            Debug.Log("--------------------------");
-        }
+        int x = TrafficInspector.Instance.GetIndexSpher(_spherData.RowNumber, _spherData) % 2 == 0 ? 1 : -1;
+        transform.Rotate(Vector3.right * x * _speedRotation);
     }
     private void LateUpdate()
     {
