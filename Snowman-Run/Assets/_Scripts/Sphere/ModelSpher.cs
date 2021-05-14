@@ -33,8 +33,11 @@ public class ModelSpher : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        int x = TrafficInspector.Instance.GetIndexSpher(_spherData.RowNumber, _spherData) % 2 == 0 ? 1 : -1;
-        transform.Rotate(Vector3.right * x * _speedRotation);
+        if (_spherData.IsRow)
+        {
+            int x = TrafficInspector.Instance.GetIndexSpher(_spherData.RowNumber, _spherData) % 2 == 0 ? 1 : -1;
+            transform.Rotate(Vector3.right * x * _speedRotation);
+        }
     }
     private void LateUpdate()
     {
