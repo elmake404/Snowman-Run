@@ -194,6 +194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 4025889526517947879, guid: 364b89e3a5207a64faed6066db7b55f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 364b89e3a5207a64faed6066db7b55f0, type: 3}
 --- !u!1001 &94725159
@@ -1340,6 +1345,12 @@ MonoBehaviour:
     ZPosition: 26.41
   - Row: 0
     ZPosition: 25.84
+  - Row: 0
+    ZPosition: 18.91
+  - Row: 0
+    ZPosition: 37.9
+  - Row: 2
+    ZPosition: 25.43
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
   _trafficInspector: {fileID: 1940933769}

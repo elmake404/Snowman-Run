@@ -26,6 +26,7 @@ public class SpherData : MonoBehaviour
 
     [SerializeField]
     private MinMax _radiusData;
+    private MassChanger _massChanger;
     public float Radius
 
     { get { return _objSpher.transform.localScale.x / 2; } }
@@ -39,12 +40,25 @@ public class SpherData : MonoBehaviour
     {
         if (IsRow)
         {
-            var Changer = other.GetComponent<MassChanger>();
-            if (Changer != null)
+            if(_massChanger==null)
+                _massChanger = other.GetComponent<MassChanger>();
+            if (_massChanger != null)
             {
-                ChangeOfSize(Changer.AddedVolume);
-                Changer.Deform(this);
+                ChangeOfSize(_massChanger.AddedVolume);
+                if(_massChanger.AddedVolume<0&&!_steem.isPlaying)
+                {
+                    _steem.Play();
+                }
+                _massChanger.Deform(this);
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if ((_massChanger != null) && _massChanger.gameObject==other.gameObject)
+        {
+            _massChanger = null;
+            _steem.Stop();
         }
     }
     private void ChangeOfSize(float addedSize)
