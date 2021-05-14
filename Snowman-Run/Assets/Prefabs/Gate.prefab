@@ -309,6 +309,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier Net
       objectReference: {fileID: 0}
+    - target: {fileID: 8998244296234041322, guid: a773a946cb27f414b94226d465b1ceda,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8998244296234041323, guid: a773a946cb27f414b94226d465b1ceda,
         type: 3}
       propertyPath: m_LocalPosition.x
