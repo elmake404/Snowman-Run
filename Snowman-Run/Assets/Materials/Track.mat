@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Track
-  m_Shader: {fileID: 4800000, guid: aa1bc5fabcb75a340ad3528d689d735d, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8438d1245632d4249a17410c209ade38, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,6 +20,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DepthTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -64,11 +68,17 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AOFactor: 1
     - _BorderWidth: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _FogOffsetY: 2
+    - _FogPowerZ: 2
+    - _FogProportion: 1
+    - _FogScaleZ: 10
+    - _GlobalLightIntensity: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -76,21 +86,30 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _SSSPower: 1
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TextureVisibility: 0
+    - _Transparency: 1
     - _UVSec: 0
     - _ZWrite: 1
     - _fogDeep: 22.23
-    - _fogDepth: 0
+    - _fogDepth: 0.01
     - _fogHeight: 5.52
     - _fogMinAlpha: 0
     m_Colors:
     - _BorderColor: {r: 0.43137258, g: 1, b: 0.6901961, a: 1}
-    - _Color: {r: 0, g: 0.556, b: 0.32433328, a: 1}
+    - _Color: {r: 0, g: 0.5568628, b: 0.44461074, a: 1}
+    - _ColorMain: {r: 0, g: 0.5568628, b: 0.44461074, a: 1}
     - _DistTiling: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HorizontalFogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MidColor: {r: 0, g: 0.7830189, b: 0.6231066, a: 1}
     - _MoveDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _SSSColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tiling: {r: 1, g: 1, b: 1, a: 1}
+    - _VerticalFogColor: {r: 1, g: 1, b: 1, a: 1}
     - _fogColor: {r: 0.6692, g: 0.8145008, b: 0.9372549, a: 1}
