@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshFilter: {fileID: 0}
-  _addedVolume: -0.01
+  _addedVolume: -0.005
 --- !u!1001 &5604802239520770781
 PrefabInstance:
   m_ObjectHideFlags: 0
