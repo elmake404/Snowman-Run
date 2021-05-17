@@ -84,7 +84,7 @@ MonoBehaviour:
     - {fileID: 1562252271717894041}
   _inactiveModel: {fileID: 2546585121979425853}
   _activeModel: {fileID: 9059659051691235376}
-  _speedRotation: 3
+  _speedRotation: 6
 --- !u!1 &4682001196467376072
 GameObject:
   m_ObjectHideFlags: 0
