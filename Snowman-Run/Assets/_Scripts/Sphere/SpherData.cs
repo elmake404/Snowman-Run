@@ -79,6 +79,6 @@ public class SpherData : MonoBehaviour
 
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
     }
-    public void SelectionModel(int CountSpher, int IndexSpher) 
-        => _modelSpher.SelectionModel(CountSpher, IndexSpher);
+    //public void SelectionModel(int CountSpher, int IndexSpher) 
+    //    => _modelSpher.SelectionModel(CountSpher, IndexSpher);
 }

@@ -102,18 +102,18 @@ public class Row : MonoBehaviour
         {
             _spherDatas[i].transform.SetParent(GetRowParent(i));
         }
-        if(IsOnGround)
-        ModelChange();
+        //if(IsOnGround)
+        //ModelChange();
     }
     public bool ConteinsSpher(SpherData spher) => _spherDatas.Contains(spher);
     public void InitializationNumber(int number) => RowNumber = number;
-    public void ModelChange()
-    {
-        for (int i = 0; i < _spherDatas.Count; i++)
-        {
-            _spherDatas[i].SelectionModel(_spherDatas.Count-1,i);
-        }
-    }
+    //public void ModelChange()
+    //{
+    //    for (int i = 0; i < _spherDatas.Count; i++)
+    //    {
+    //        _spherDatas[i].SelectionModel(_spherDatas.Count-1,i);
+    //    }
+    //}
 
 
 }

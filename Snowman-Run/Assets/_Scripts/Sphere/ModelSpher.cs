@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class ModelSpher : MonoBehaviour
 {
-    [System.Serializable]
-    public struct ModelSelection
-    {
-        public List<GameObject> Models;
-    }
+    //[System.Serializable]
+    //public struct ModelSelection
+    //{
+    //    public List<GameObject> Models;
+    //}
 
     [SerializeField]
     private SpherData _spherData;
+    //[SerializeField]
+    //private List<ModelSelection> _modelСhoices;
     [SerializeField]
-    private List<ModelSelection> _modelСhoices;
+    private List<Material> _materials;
     [SerializeField]
     private GameObject _inactiveModel;
     [SerializeField]
-    private GameObject _activeModel;
-    private GameObject _activeSphere;
+    private MeshRenderer _activeModel;
 
     [SerializeField]
     private float _speedRotation;
     private void Start()
     {
-        if (_activeModel == null)
-        {
-            _activeSphere = _modelСhoices[0].Models[0];
-            _activeSphere.SetActive(true);
-        }
-        _activeModel.SetActive(true);
+        _inactiveModel.SetActive(true);
+        _activeModel.material = _materials[Random.Range(0,_materials.Count)];
+
+        //if (_activeModel == null)
+        //{
+        //    _activeSphere = _modelСhoices[0].Models[0];
+        //    _activeSphere.SetActive(true);
+        //}
     }
     private void FixedUpdate()
     {
@@ -46,7 +49,7 @@ public class ModelSpher : MonoBehaviour
             if (!_inactiveModel.activeSelf)
             {
                 _inactiveModel.SetActive(true);
-                _activeModel.SetActive(false);
+                _activeModel.gameObject.SetActive(false);
             }
         }
         else
@@ -54,40 +57,40 @@ public class ModelSpher : MonoBehaviour
             if (_inactiveModel.activeSelf)
             {
                 _inactiveModel.SetActive(false);
-                _activeModel.SetActive(true);
+                _activeModel.gameObject.SetActive(true);
             }
         }
 
     }
-    void OnValidate()
-    {
-        if (_modelСhoices.Count > 0)
-        {
-            for (int i = 0; i < _modelСhoices.Count; i++)
-            {
-                while (true)
-                {
-                    if (_modelСhoices[i].Models.Count > i + 1)
-                    {
-                        _modelСhoices[i].Models.RemoveAt(_modelСhoices[i].Models.Count - 1);
-                    }
-                    else if (_modelСhoices[i].Models.Count < i + 1)
-                    {
-                        _modelСhoices[i].Models.Add(null);
-                    }
-                    else break;
-                }
-            }
-        }
-    }
-    public void SelectionModel(int CountSpher, int IndexSpher)
-    {
-        if (CountSpher >= _modelСhoices.Count) CountSpher = _modelСhoices.Count - 1;
-        if (IndexSpher >= _modelСhoices[CountSpher].Models.Count) IndexSpher = 1;
+    //void OnValidate()
+    //{
+    //    if (_modelСhoices.Count > 0)
+    //    {
+    //        for (int i = 0; i < _modelСhoices.Count; i++)
+    //        {
+    //            while (true)
+    //            {
+    //                if (_modelСhoices[i].Models.Count > i + 1)
+    //                {
+    //                    _modelСhoices[i].Models.RemoveAt(_modelСhoices[i].Models.Count - 1);
+    //                }
+    //                else if (_modelСhoices[i].Models.Count < i + 1)
+    //                {
+    //                    _modelСhoices[i].Models.Add(null);
+    //                }
+    //                else break;
+    //            }
+    //        }
+    //    }
+    //}
+    //public void SelectionModel(int CountSpher, int IndexSpher)
+    //{
+    //    if (CountSpher >= _modelСhoices.Count) CountSpher = _modelСhoices.Count - 1;
+    //    if (IndexSpher >= _modelСhoices[CountSpher].Models.Count) IndexSpher = 1;
 
-        if (_activeSphere != null) _activeSphere.SetActive(false);
+    //    if (_activeSphere != null) _activeSphere.SetActive(false);
 
-        _activeSphere = _modelСhoices[CountSpher].Models[IndexSpher];
-        _activeSphere.SetActive(true);
-    }
+    //    _activeSphere = _modelСhoices[CountSpher].Models[IndexSpher];
+    //    _activeSphere.SetActive(true);
+    //}
 }
