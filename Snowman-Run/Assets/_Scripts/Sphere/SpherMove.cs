@@ -11,6 +11,7 @@ public class SpherMove : MonoBehaviour
     void Awake()
     {
         _spherData = GetComponent<SpherData>();
+        GameStageEvent.WinLevel += EndGame;
     }
     private void Start()
     {
@@ -22,6 +23,10 @@ public class SpherMove : MonoBehaviour
         {
             _rbMain.velocity = Vector3.Slerp(_rbMain.velocity, Vector3.zero, 0.5f);
         }
+    }
+    private void EndGame()
+    {
+        _rbMain.isKinematic = true;
     }
     public void MoveToAnotherRow(bool right)
     {

@@ -18,8 +18,8 @@ public class ModelSpher : MonoBehaviour
     private List<Material> _materials;
     [SerializeField]
     private List<Transform> _topping;
-    [SerializeField]
-    private GameObject _inactiveModel;
+    //[SerializeField]
+    //private GameObject _inactiveModel;
     [SerializeField]
     private MeshRenderer _activeModel;
 
@@ -27,7 +27,7 @@ public class ModelSpher : MonoBehaviour
     private float _speedRotation;
     private void Start()
     {
-        _inactiveModel.SetActive(true);
+        //_inactiveModel.SetActive(true);
         _activeModel.material = _materials[Random.Range(0, _materials.Count)];
 
         //if (_activeModel == null)
@@ -38,38 +38,38 @@ public class ModelSpher : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_spherData.IsRow)
+        if (_spherData.IsRow && GameStage.IsGameFlowe)
         {
             int x = TrafficInspector.Instance.GetIndexSpher(_spherData.RowNumber, _spherData) % 2 == 0 ? 1 : -1;
             transform.Rotate(Vector3.right * x * _speedRotation);
         }
     }
-    private void LateUpdate()
-    {
-        if (!_spherData.IsRow)
-        {
-            if (!_inactiveModel.activeSelf)
-            {
-                _inactiveModel.SetActive(true);
-                _activeModel.gameObject.SetActive(false);
-            }
-        }
-        else
-        {
-            if (_inactiveModel.activeSelf)
-            {
-                _inactiveModel.SetActive(false);
-                _activeModel.gameObject.SetActive(true);
-            }
-        }
+    //private void LateUpdate()
+    //{
+    //    if (!_spherData.IsRow)
+    //    {
+    //        if (!_inactiveModel.activeSelf)
+    //        {
+    //            _inactiveModel.SetActive(true);
+    //            _activeModel.gameObject.SetActive(false);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if (_inactiveModel.activeSelf)
+    //        {
+    //            _inactiveModel.SetActive(false);
+    //            _activeModel.gameObject.SetActive(true);
+    //        }
+    //    }
 
-    }
+    //}
     public void ActivationTopping()
     {
         for (int i = 0; i < _topping.Count; i++)
         {
-            if (_spherData.transform.position.y > _topping[i].position.y&&
-                Mathf.Abs(_spherData.transform.position.z - _topping[i].position.z)<0.1f)
+            if (_spherData.transform.position.y > _topping[i].position.y &&
+                Mathf.Abs(_spherData.transform.position.z - _topping[i].position.z) < 0.1f)
             {
                 _topping[i].gameObject.SetActive(true);
             }
