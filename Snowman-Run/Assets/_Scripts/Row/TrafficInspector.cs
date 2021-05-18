@@ -73,7 +73,12 @@ public class TrafficInspector : MonoBehaviour
     {
         for (int i = 0; i < _rows.Count; i++)
         {
-            if (i != _rows.Count / 2) AddNewSpher(_rows.Count / 2, _rows[i].GetFirstSphere());
+            if (i != _rows.Count / 2)
+            {
+                SpherData spherData = _rows[i].GetFirstSphere();
+                
+              if(spherData!=null)  AddNewSpher(_rows.Count / 2, spherData);
+            }
         }
         SpherData spher = _rows[_rows.Count / 2].GetFirstSphere();
         guide.Sightseer = spher.transform;

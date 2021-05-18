@@ -1137,8 +1137,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715543434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 7.669}
-  m_LocalScale: {x: 1.0000019, y: 0.99999887, z: 3.0580404}
+  m_LocalPosition: {x: 0, y: 0, z: -1.107}
+  m_LocalScale: {x: 1.0000024, y: 0.999999, z: 1.3029226}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1412,13 +1412,7 @@ MonoBehaviour:
     Count: 2
   - Row: 2
     Count: 5
-  _additionalSphere:
-  - Row: 2
-    ZPosition: 9.74
-  - Row: 0
-    ZPosition: 16.68
-  - Row: 1
-    ZPosition: 21.2
+  _additionalSphere: []
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
   _trafficInspector: {fileID: 1940933769}
