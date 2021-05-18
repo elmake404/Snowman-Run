@@ -29,6 +29,15 @@ public class TrafficInspector : MonoBehaviour
             _rows[i].InitializationNumber(i);
         }
     }
+    private List<SpherData> GetAllSpheres()
+    {
+        List<SpherData> AllSphere = new List<SpherData>();
+        for (int i = 0; i < _rows.Count; i++)
+        {
+            AllSphere.AddRange(_rows[i].GetAllSpheres());
+        }
+        return AllSphere;
+    }
     public void UpdateRowPosition(int Row) => _rows[Row].UpdateSpherPosition();
     public void AddNewSpher(int row, SpherData spherData)
     {
@@ -57,6 +66,22 @@ public class TrafficInspector : MonoBehaviour
     => _additionalSphere.Add(sphere);
     public void RemoveAdditionalSphere(SpherData sphere)
     => _additionalSphere.Remove(sphere);
+    public void GoToTheHorn(Transform PosHorn)
+    {
+    
+        List<SpherData> AllSphere = GetAllSpheres();
+        Vector3 posSpher = PosHorn.position;
+        Transform ParentSphere = PosHorn;
+
+        for (int i = 0; i < AllSphere.Count; i++)
+        {
+            AllSphere[i].transform.SetParent(ParentSphere);
+            posSpher.y += AllSphere[i].Radius;
+            AllSphere[i].transform.localPosition = ParentSphere.InverseTransformPoint(posSpher);
+            ParentSphere = AllSphere[i].transform;
+            posSpher.y += AllSphere[i].Radius;
+        }
+    }
     public Vector3 GetLocalPositionInRow(int rowNumber, float radius) 
         => _rows[rowNumber].GetLocalPosition(radius);
     public Vector3 GetGlobalPositionRow(int rowNumber, float radius)

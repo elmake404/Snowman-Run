@@ -51,7 +51,7 @@ public class Row : MonoBehaviour
     public List<SpherData> GetHigherSpheres(SpherData spher)
     {
         List<SpherData> sphers = new List<SpherData>();
-        //sphers.Add(spher);
+
         if (_spherDatas.Contains(spher))
         {
             int numberSpher = _spherDatas.IndexOf(spher);
@@ -67,6 +67,7 @@ public class Row : MonoBehaviour
 
         return sphers;
     }
+    public List<SpherData> GetAllSpheres() => _spherDatas;
     public int GetCountSpher()
         => _spherDatas.Count;
     public int IndexOf(SpherData spher) => _spherDatas.IndexOf(spher);

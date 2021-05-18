@@ -11,6 +11,10 @@ public static class GameStageEvent
     {
         StartLevel?.Invoke();
     }
+    public static void InvokeWinLevel()
+    {
+        WinLevel?.Invoke();
+    }
 }
 public enum Stage { StartGame, StartLevel, WinGame, LostGame }
 public class GameStage : MonoBehaviour
@@ -61,6 +65,8 @@ public class GameStage : MonoBehaviour
                 if (IsGameFlowe)
                 {
                     _canvasManager.GameStageWindow(StageGame);
+                    GameStageEvent.InvokeWinLevel();
+
                     //PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
                     //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
