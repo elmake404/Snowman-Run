@@ -28,7 +28,6 @@ public class ModelSpher : MonoBehaviour
     private void Start()
     {
         //_inactiveModel.SetActive(true);
-        _activeModel.material = _materials[Random.Range(0, _materials.Count)];
 
         //if (_activeModel == null)
         //{
@@ -74,6 +73,11 @@ public class ModelSpher : MonoBehaviour
                 _topping[i].gameObject.SetActive(true);
             }
         }
+    }
+    public void СhooseСolor(int number)
+    {
+        if (number >= _materials.Count) number = _materials.Count - 1;
+        _activeModel.material = _materials[number];
     }
 
     //void OnValidate()

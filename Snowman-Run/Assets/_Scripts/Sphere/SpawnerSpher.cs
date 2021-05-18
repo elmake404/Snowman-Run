@@ -5,12 +5,13 @@ using UnityEngine;
 [System.Serializable]
 public struct SpawnSpherData
 {
-    public int Row, Count;
+    public int Row;
+    public int[] Count;
 }
 [System.Serializable]
 public struct SpawnAdditionalSpherData
 {
-    public int Row;
+    public int Row, NumberColor;
     public float ZPosition;
 }
 public class SpawnerSpher : MonoBehaviour
@@ -40,16 +41,18 @@ public class SpawnerSpher : MonoBehaviour
             SpherData spher = Instantiate(_spherDataPrefabs, positionSpher, Quaternion.identity);
             spher.RowNumber = _additionalSphere[i].Row;
             _trafficInspector.AddAdditionalSphere(spher);
+            spher.ChooseModelColor(_additionalSphere[i].NumberColor);
         }
 
         for (int i = 0; i < _startSpawn.Count; i++)
         {
-            for (int j = 0; j < _startSpawn[i].Count; j++)
+            for (int j = 0; j < _startSpawn[i].Count.Length; j++)
             {
                 SpherData spher = Instantiate(_spherDataPrefabs, transform.position, Quaternion.identity);
                 spher.RowNumber = _startSpawn[i].Row;
                 _trafficInspector.AddNewSpher(_startSpawn[i].Row, spher);
                 spher.StoodInARow();
+                spher.ChooseModelColor(_startSpawn[i].Count[j]);
             }
         }
     }
