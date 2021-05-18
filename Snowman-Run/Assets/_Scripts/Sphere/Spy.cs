@@ -19,17 +19,10 @@ public class Spy : MonoBehaviour
     {
         if (transform.parent != _target)
         {
-            if (GameStage.IsGameFlowe)
-            {
-                Vector3 newPos = transform.position;
-                newPos.z = _target.position.z - _offset.z;
-                transform.position = (newPos);
-                MoveSpher();
-            }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position,_target.position,_speedOfMovementInARow*Time.deltaTime);
-            }
+            Vector3 newPos = transform.position;
+            newPos.z = _target.position.z - _offset.z;
+            transform.position = (newPos);
+            MoveSpher();
         }
     }
     private void MoveSpher()

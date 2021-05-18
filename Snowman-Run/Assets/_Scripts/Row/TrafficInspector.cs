@@ -11,15 +11,18 @@ public class TrafficInspector : MonoBehaviour
     private List<Row> _rows = new List<Row>();
     private List<SpherData> _additionalSphere = new List<SpherData>();
 
-    private int _numberOfSpheresInTheGame { get 
+    private int _numberOfSpheresInTheGame
+    {
+        get
         {
             int count = 0;
             for (int i = 0; i < _rows.Count; i++)
             {
-               count+= _rows[i].GetCountSpher();
+                count += _rows[i].GetCountSpher();
             }
             return count;
-        } }
+        }
+    }
 
     private void Awake()
     {
@@ -29,15 +32,15 @@ public class TrafficInspector : MonoBehaviour
             _rows[i].InitializationNumber(i);
         }
     }
-    private List<SpherData> GetAllSpheres()
-    {
-        List<SpherData> AllSphere = new List<SpherData>();
-        for (int i = 0; i < _rows.Count; i++)
-        {
-            AllSphere.AddRange(_rows[i].GetAllSpheres());
-        }
-        return AllSphere;
-    }
+    //private List<SpherData> GetAllSpheres()
+    //{
+    //    List<SpherData> AllSphere = new List<SpherData>();
+    //    for (int i = 0; i < _rows.Count; i++)
+    //    {
+    //        AllSphere.AddRange(_rows[i].GetAllSpheres());
+    //    }
+    //    return AllSphere;
+    //}
     public void UpdateRowPosition(int Row) => _rows[Row].UpdateSpherPosition();
     public void AddNewSpher(int row, SpherData spherData)
     {
@@ -48,7 +51,7 @@ public class TrafficInspector : MonoBehaviour
     public void RemoveSpher(int row, SpherData spherData)
     {
         _rows[row].RemoveSpher(spherData);
-        if(_numberOfSpheresInTheGame<=0)
+        if (_numberOfSpheresInTheGame <= 0)
         {
             GameStage.Instance.ChangeStage(Stage.LostGame);
         }
@@ -66,23 +69,17 @@ public class TrafficInspector : MonoBehaviour
     => _additionalSphere.Add(sphere);
     public void RemoveAdditionalSphere(SpherData sphere)
     => _additionalSphere.Remove(sphere);
-    public void GoToTheHorn(Transform PosHorn)
+    public void GoToTheHorn(Guide guide)
     {
-    
-        List<SpherData> AllSphere = GetAllSpheres();
-        Vector3 posSpher = PosHorn.position;
-        Transform ParentSphere = PosHorn;
-
-        for (int i = 0; i < AllSphere.Count; i++)
+        for (int i = 0; i < _rows.Count; i++)
         {
-            AllSphere[i].transform.SetParent(ParentSphere);
-            posSpher.y += AllSphere[i].Radius;
-            AllSphere[i].transform.localPosition = ParentSphere.InverseTransformPoint(posSpher);
-            ParentSphere = AllSphere[i].transform;
-            posSpher.y += AllSphere[i].Radius;
+            if (i != _rows.Count / 2) AddNewSpher(_rows.Count / 2, _rows[i].GetFirstSphere());
         }
+        SpherData spher = _rows[_rows.Count / 2].GetFirstSphere();
+        guide.Sightseer = spher.transform;
+        spher.Move.GoToTheHorn(guide.transform);
     }
-    public Vector3 GetLocalPositionInRow(int rowNumber, float radius) 
+    public Vector3 GetLocalPositionInRow(int rowNumber, float radius)
         => _rows[rowNumber].GetLocalPosition(radius);
     public Vector3 GetGlobalPositionRow(int rowNumber, float radius)
      => _rows[rowNumber].transform.TransformPoint(_rows[rowNumber].GetLocalPosition(radius));
@@ -98,7 +95,7 @@ public class TrafficInspector : MonoBehaviour
         return null;
     }
     public int GetIndexSpher(int row, SpherData spherData) => _rows[row].IndexOf(spherData);
-    public bool CheckingSeriesForExistence(int number) 
+    public bool CheckingSeriesForExistence(int number)
         => number >= 0 && number < _rows.Count;
     public bool ContainsRow(SpherData sphere)
     {
@@ -111,7 +108,7 @@ public class TrafficInspector : MonoBehaviour
         }
         return false;
     }
-    public bool RowIsOnTheGround(int number) 
+    public bool RowIsOnTheGround(int number)
         => _rows[number].IsOnGround;
     public bool CheckRow(int row)
     {

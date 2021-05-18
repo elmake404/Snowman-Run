@@ -67,7 +67,7 @@ public class Row : MonoBehaviour
 
         return sphers;
     }
-    public List<SpherData> GetAllSpheres() => _spherDatas;
+    public SpherData GetFirstSphere() => _spherDatas[0];
     public int GetCountSpher()
         => _spherDatas.Count;
     public int IndexOf(SpherData spher) => _spherDatas.IndexOf(spher);

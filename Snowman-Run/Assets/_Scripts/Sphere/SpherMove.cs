@@ -8,6 +8,8 @@ public class SpherMove : MonoBehaviour
     private TrafficInspector _trafficInspector;
     [SerializeField]
     private Rigidbody _rbMain;
+    [SerializeField]
+    private float _speedHorn;
     void Awake()
     {
         _spherData = GetComponent<SpherData>();
@@ -27,6 +29,14 @@ public class SpherMove : MonoBehaviour
     private void EndGame()
     {
         _rbMain.isKinematic = true;
+    }
+    private IEnumerator MoveToHorn(Transform Target)
+    {
+        while (true)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,Target.position,_speedHorn);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
     }
     public void MoveToAnotherRow(bool right)
     {
@@ -49,4 +59,9 @@ public class SpherMove : MonoBehaviour
     {
         _rbMain.constraints = RigidbodyConstraints.None;
     }
+    public void GoToTheHorn(Transform Target)
+    {
+        StartCoroutine(MoveToHorn(Target));
+    }
+
 }

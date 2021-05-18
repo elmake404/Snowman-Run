@@ -5,7 +5,7 @@ using UnityEngine;
 public class FinishScript : MonoBehaviour
 {
     [SerializeField]
-    private Transform PosSpher;
+    private Guide PosSpher;
     private void OnTriggerEnter(Collider other)
     {
         var spher = other.GetComponent<SpherData>();
