@@ -19,6 +19,10 @@ public class SpherMove : MonoBehaviour
     {
         _trafficInspector = TrafficInspector.Instance;
     }
+    private void OnDestroy()
+    {
+        GameStageEvent.WinLevel -= EndGame;
+    }
     void FixedUpdate()
     {
         if (_rbMain.velocity.y > 0 && transform.position.y> _trafficInspector.GetGlobalPositionRow(_spherData.RowNumber,_spherData.Radius).y)
@@ -28,6 +32,12 @@ public class SpherMove : MonoBehaviour
     }
     private void EndGame()
     {
+        GameStageEvent.WinLevel -= EndGame;
+
+        if (_rbMain==null)
+        {
+            Debug.Log(transform.position);
+        }
         _rbMain.isKinematic = true;
     }
     private IEnumerator MoveToHorn(Transform Target)
