@@ -17,6 +17,8 @@ public class ModelSpher : MonoBehaviour
     [SerializeField]
     private List<Material> _materials;
     [SerializeField]
+    private List<Transform> _topping;
+    [SerializeField]
     private GameObject _inactiveModel;
     [SerializeField]
     private MeshRenderer _activeModel;
@@ -26,7 +28,7 @@ public class ModelSpher : MonoBehaviour
     private void Start()
     {
         _inactiveModel.SetActive(true);
-        _activeModel.material = _materials[Random.Range(0,_materials.Count)];
+        _activeModel.material = _materials[Random.Range(0, _materials.Count)];
 
         //if (_activeModel == null)
         //{
@@ -62,6 +64,18 @@ public class ModelSpher : MonoBehaviour
         }
 
     }
+    public void ActivationTopping()
+    {
+        for (int i = 0; i < _topping.Count; i++)
+        {
+            if (_spherData.transform.position.y > _topping[i].position.y&&
+                Mathf.Abs(_spherData.transform.position.z - _topping[i].position.z)<0.1f)
+            {
+                _topping[i].gameObject.SetActive(true);
+            }
+        }
+    }
+
     //void OnValidate()
     //{
     //    if (_modelСhoices.Count > 0)

@@ -42,12 +42,17 @@ public class SpherData : MonoBehaviour
         {
             if(_massChanger==null)
                 _massChanger = other.GetComponent<MassChanger>();
+
             if (_massChanger != null)
             {
                 ChangeOfSize(_massChanger.AddedVolume);
                 if(_massChanger.AddedVolume<0&&!_steem.isPlaying)
                 {
                     _steem.Play();
+                }
+                if (_massChanger.IsTopping)
+                {
+                    _modelSpher.ActivationTopping();
                 }
                 _massChanger.Deform(this);
             }
