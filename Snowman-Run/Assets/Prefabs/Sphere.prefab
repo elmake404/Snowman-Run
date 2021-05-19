@@ -391,7 +391,7 @@ MonoBehaviour:
   _spherMove: {fileID: 2766662315674648649}
   _radiusData:
     Min: 0.75
-    Max: 1.25
+    Max: 1
   RowNumber: 0
 --- !u!114 &2766662315674648649
 MonoBehaviour:
@@ -6920,6 +6920,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 7809cf584f7a8ba4897c2c57e9669dfe, type: 2}
+    - target: {fileID: 8125091150151130449, guid: adc89d350452893478cc68bc152877b7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2153038547940445985, guid: 2d7442268895ba64d9807b89ec8e9f57,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adc89d350452893478cc68bc152877b7, type: 3}
 --- !u!4 &1589604474073208199 stripped
