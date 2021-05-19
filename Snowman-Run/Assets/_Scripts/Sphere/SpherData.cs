@@ -84,6 +84,7 @@ public class SpherData : MonoBehaviour
 
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
     }
+    public void ChooseModelColor(int number) => _modelSpher.СhooseСolor(number);
     //public void SelectionModel(int CountSpher, int IndexSpher) 
     //    => _modelSpher.SelectionModel(CountSpher, IndexSpher);
 }

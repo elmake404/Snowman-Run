@@ -221,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 7082556517715110163, guid: 9625a31973f3e624483ac7c6a18a9737,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.7
+      value: 65.5
       objectReference: {fileID: 0}
     - target: {fileID: 7082556517715110163, guid: 9625a31973f3e624483ac7c6a18a9737,
         type: 3}
@@ -1137,8 +1137,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715543434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.107}
-  m_LocalScale: {x: 1.0000024, y: 0.999999, z: 1.3029226}
+  m_LocalPosition: {x: 0, y: -0, z: 7.668}
+  m_LocalScale: {x: 1.0000029, y: 0.9999988, z: 3.0579937}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1407,12 +1407,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startSpawn:
   - Row: 0
-    Count: 3
+    Count: 0500000001000000000000000200000004000000
   - Row: 1
-    Count: 2
+    Count: 010000000200000004000000
   - Row: 2
-    Count: 5
-  _additionalSphere: []
+    Count: 
+  _additionalSphere:
+  - Row: 0
+    NumberColor: 9
+    ZPosition: 1.17
+  - Row: 2
+    NumberColor: 100
+    ZPosition: 5.17
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
   _trafficInspector: {fileID: 1940933769}
@@ -1445,7 +1451,7 @@ PrefabInstance:
     - target: {fileID: 4796133722653437767, guid: 6e9af823cf1b40546a23db6f2b3abaf3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5315543442807846397, guid: 6e9af823cf1b40546a23db6f2b3abaf3,
         type: 3}
