@@ -9,7 +9,7 @@ public class Row : MonoBehaviour
     public bool IsOnGround { get { return _ethers.Count > 0; } }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer==8)
+        if (other.gameObject.layer == 8)
         {
             if (!_ethers.Contains(other.gameObject)) _ethers.Add(other.gameObject);
         }
@@ -67,7 +67,7 @@ public class Row : MonoBehaviour
 
         return sphers;
     }
-    public SpherData GetFirstSphere() => _spherDatas.Count>0? _spherDatas[0]:null;
+    public SpherData GetFirstSphere() => _spherDatas.Count > 0 ? _spherDatas[0] : null;
     public int GetCountSpher()
         => _spherDatas.Count;
     public int IndexOf(SpherData spher) => _spherDatas.IndexOf(spher);
@@ -92,7 +92,7 @@ public class Row : MonoBehaviour
         }
         _spherDatas.AddRange(spherDatas);
     }
-    public void RemoveSpher(SpherData spher) 
+    public void RemoveSpher(SpherData spher)
     {
         if (!_spherDatas.Contains(spher)) return;
 
@@ -108,13 +108,18 @@ public class Row : MonoBehaviour
     }
     public bool ConteinsSpher(SpherData spher) => _spherDatas.Contains(spher);
     public void InitializationNumber(int number) => RowNumber = number;
-    //public void ModelChange()
-    //{
-    //    for (int i = 0; i < _spherDatas.Count; i++)
-    //    {
-    //        _spherDatas[i].SelectionModel(_spherDatas.Count-1,i);
-    //    }
-    //}
+    public void MixedSpher(Vector3 position)
+    {
+        Vector3 posSpher = position;
+        Transform ParentSphere = transform;
 
+        for (int i = 0; i < _spherDatas.Count; i++)
+        {
+            posSpher.y += _spherDatas[i].Radius - 0.1f;
+            _spherDatas[i].transform.localPosition = ParentSphere.InverseTransformPoint(posSpher);
+            ParentSphere = _spherDatas[i].transform;
+            posSpher.y += _spherDatas[i].Radius - 0.1f;
+        }
 
+    }
 }

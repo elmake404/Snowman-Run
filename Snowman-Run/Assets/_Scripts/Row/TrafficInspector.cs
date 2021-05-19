@@ -32,15 +32,6 @@ public class TrafficInspector : MonoBehaviour
             _rows[i].InitializationNumber(i);
         }
     }
-    //private List<SpherData> GetAllSpheres()
-    //{
-    //    List<SpherData> AllSphere = new List<SpherData>();
-    //    for (int i = 0; i < _rows.Count; i++)
-    //    {
-    //        AllSphere.AddRange(_rows[i].GetAllSpheres());
-    //    }
-    //    return AllSphere;
-    //}
     public void UpdateRowPosition(int Row) => _rows[Row].UpdateSpherPosition();
     public void AddNewSpher(int row, SpherData spherData)
     {
@@ -62,8 +53,6 @@ public class TrafficInspector : MonoBehaviour
         Transform parent = _rows[rowNumber].GetRowLastPrent();
         spher.transform.SetParent(parent);
         _rows[rowNumber].AddSpher(_rows[oldRowNumber].GetHigherSpheres(spher));
-        //_rows[rowNumber].ModelChange();
-        //_rows[oldRowNumber].ModelChange();
     }
     public void AddAdditionalSphere(SpherData sphere)
     => _additionalSphere.Add(sphere);
@@ -83,6 +72,13 @@ public class TrafficInspector : MonoBehaviour
         SpherData spher = _rows[_rows.Count / 2].GetFirstSphere();
         guide.Sightseer = spher.transform;
         spher.Move.GoToTheHorn(guide.transform);
+    }
+    public void MixingAllSpher(Vector3 position)
+    {
+        for (int i = 0; i < _rows.Count; i++)
+        {
+            _rows[i].MixedSpher(position);
+        }
     }
     public Vector3 GetLocalPositionInRow(int rowNumber, float radius)
         => _rows[rowNumber].GetLocalPosition(radius);

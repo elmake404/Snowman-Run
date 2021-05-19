@@ -25,6 +25,11 @@ public class Guide : MonoBehaviour
                 _way += 0.1f;
                 transform.position = _spline.GetPoint(_way);
             }
+            else if(_way>=1)
+            {
+                enabled = false;
+                TrafficInspector.Instance.MixingAllSpher(transform.position);
+            }
         }
     }
 }

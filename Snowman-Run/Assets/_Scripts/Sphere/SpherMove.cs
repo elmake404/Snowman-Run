@@ -42,9 +42,10 @@ public class SpherMove : MonoBehaviour
     }
     private IEnumerator MoveToHorn(Transform Target)
     {
+        float Yoffset = transform.position.y - Target.position.y;
         while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position,Target.position,_speedHorn);
+            transform.position = Vector3.MoveTowards(transform.position,Target.position+Vector3.up*Yoffset,_speedHorn);
             yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
     }
