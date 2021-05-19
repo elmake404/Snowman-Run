@@ -393,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: confetti-bot-all 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4796133722653437767, guid: 72412cb0fbcf1bd4c934597fd5a6ba05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5315543442807846397, guid: 72412cb0fbcf1bd4c934597fd5a6ba05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1311,6 +1316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: confetti-bot-all
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796133722653437767, guid: 6e9af823cf1b40546a23db6f2b3abaf3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5315543442807846397, guid: 6e9af823cf1b40546a23db6f2b3abaf3,
         type: 3}

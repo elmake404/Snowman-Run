@@ -5381,10 +5381,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1819719663557729890, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2184526725563439212, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049137603241550227, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581905913882029971, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928186054574368612, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4956757920773252084, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5010992723022584304, guid: 17437978cfefc5c4daad4b7c98bfdf61,
         type: 3}
       propertyPath: m_Name
       value: Sphere_xpEmitter_Null (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762824079965618851, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928114857395926770, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714077185841998431, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150382887960935538, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17437978cfefc5c4daad4b7c98bfdf61, type: 3}
