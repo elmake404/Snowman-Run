@@ -25,11 +25,11 @@ public class SpawnerSpher : MonoBehaviour
     [SerializeField]
     private TrafficInspector _trafficInspector;
 
-    private bool f;
+    private bool _startGame;
     private void Start()
     {
         Spawn();
-        f = true;
+        _startGame = true;
     }
     private void Spawn()
     {
@@ -58,7 +58,7 @@ public class SpawnerSpher : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        if (!f)
+        if (!_startGame)
         {
             Gizmos.color = Color.blue;
             if (_additionalSphere.Count > 0)
