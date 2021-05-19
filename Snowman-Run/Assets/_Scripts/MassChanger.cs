@@ -8,4 +8,6 @@ public class MassChanger : MeshDeformation
     private float _addedVolume;public float AddedVolume { get { return _addedVolume; } }
     [SerializeField]
     private bool _isTopping; public bool IsTopping { get { return _isTopping; } }
+    [SerializeField]
+    private TopingType _myToping; public TopingType TopingType { get { return _myToping; } }
 }

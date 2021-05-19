@@ -52,7 +52,7 @@ public class SpherData : MonoBehaviour
                 }
                 if (_massChanger.IsTopping)
                 {
-                    _modelSpher.ActivationTopping();
+                    _modelSpher.ActivationToping(_massChanger.TopingType);
                 }
                 _massChanger.Deform(this);
             }

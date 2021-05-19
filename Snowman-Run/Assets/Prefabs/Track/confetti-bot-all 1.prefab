@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6337243996421977968}
   - component: {fileID: 3435040663019508337}
   m_Layer: 0
-  m_Name: confetti-bot-all
+  m_Name: confetti-bot-all 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meshFilter: {fileID: 9109446192939989592}
   _addedVolume: 0
-  _isTopping: 0
+  _isTopping: 1
+  _myToping: 1
 --- !u!65 &3435040663019508337
 BoxCollider:
   m_ObjectHideFlags: 0
