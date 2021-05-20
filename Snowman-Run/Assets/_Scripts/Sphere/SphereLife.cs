@@ -34,14 +34,14 @@ public class SphereLife : MonoBehaviour
 
         if (barrier != null)
         {
-            StartCoroutine(KnockedOutOfTheRow());
+            StartCoroutine(KnockedOutOfTheRow(barrier.IsKnife));
         }
     }
-    private IEnumerator KnockedOutOfTheRow()
+    private IEnumerator KnockedOutOfTheRow(bool knife)
     {
         TrafficInspector.Instance.RemoveSpher(_spherData.RowNumber, _spherData);
         _spherData.Move.RigidbodyConstraintsNone();
-
+        if (knife) _spherData.CutTheModel();
         yield return new WaitForSeconds(1);
 
         Died?.Invoke();

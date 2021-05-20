@@ -15,6 +15,8 @@ public class Toping : MonoBehaviour
     private SpherData _spherData;
     [SerializeField]
     private TopingType _myType; public TopingType TopingType { get { return _myType; } }
+    [SerializeField]
+    private ParticleSystem _particle;
     public void Initialization(SpherData spherData)
     {
         _spherData = spherData;
@@ -38,6 +40,19 @@ public class Toping : MonoBehaviour
         {
             transform.GetChild(i).gameObject.SetActive(false);
             _topping.Add(transform.GetChild(i));
+        }
+    }
+    public void IsThereAnActiveObject()
+    {
+        for (int i = 0; i < _topping.Count; i++)
+        {
+            if (_topping[i].gameObject.activeSelf)
+            {
+                _particle.Play();
+                _particle.transform.rotation = Quaternion.identity;
+                _particle.transform.SetParent(null);
+                return;
+            }
         }
     }
 

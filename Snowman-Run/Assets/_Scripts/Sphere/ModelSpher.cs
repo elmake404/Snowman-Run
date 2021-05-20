@@ -13,6 +13,8 @@ public class ModelSpher : MonoBehaviour
     private Dictionary<TopingType, Toping> _topingsDictionary = new Dictionary<TopingType, Toping>();
     [SerializeField]
     private MeshRenderer _activeModel;
+    [SerializeField]
+    private BrokenModel _brokenModel;
 
     [SerializeField]
     private float _speedRotation;
@@ -36,6 +38,16 @@ public class ModelSpher : MonoBehaviour
     {
         if (number >= _materials.Count) number = _materials.Count - 1;
         _activeModel.material = _materials[number];
+        _brokenModel.СhooseСolor(_materials[number]);
     }
     public void ActivationToping(TopingType toping) => _topingsDictionary[toping].ActivationTopping();
+    public void ModelReplacement()
+    {
+        for (int i = 0; i < _topings.Count; i++)
+        {
+            _topings[i].IsThereAnActiveObject();
+        }
+        _activeModel.gameObject.SetActive(false);
+        _brokenModel.Push(-_spherData.transform.forward);
+    }
 }
