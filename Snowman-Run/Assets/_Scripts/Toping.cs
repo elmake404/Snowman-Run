@@ -51,6 +51,8 @@ public class Toping : MonoBehaviour
                 _particle.Play();
                 _particle.transform.rotation = Quaternion.identity;
                 _particle.transform.SetParent(null);
+                gameObject.SetActive(false);
+
                 return;
             }
         }

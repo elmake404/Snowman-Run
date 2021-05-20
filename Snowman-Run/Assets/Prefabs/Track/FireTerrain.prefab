@@ -383,6 +383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: barbeque
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a171faffdc280a64c8c942d6ee8f5c58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3090849816477861027, guid: a171faffdc280a64c8c942d6ee8f5c58,
         type: 3}
       propertyPath: m_IsActive
