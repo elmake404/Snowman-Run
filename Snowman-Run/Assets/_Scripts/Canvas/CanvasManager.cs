@@ -13,16 +13,35 @@ public class CanvasManager : MonoBehaviour
     private Transform _finishPos;
     [SerializeField]
     private Text _textLevelWin, _textLevelCurent, _textLevelTarget;
+    private MoveRowe _moveRowe;
 
+    private float _distens;
+    private float _distensTraveled
+    { get { return _finishPos.position.z - _moveRowe.transform.position.z; } }
+
+    private void Awake()
+    {
+        _moveRowe = FindObjectOfType<MoveRowe>();
+        _finishPos = FindObjectOfType<FinishScript>().transform;
+    }
     private void Start()
     {
+        _distens = _finishPos.position.z - _moveRowe.transform.position.z - 0.5f;
+
         _textLevelWin.text ="Level "+ PlayerPrefs.GetInt("Level").ToString();
         _textLevelCurent.text = PlayerPrefs.GetInt("Level").ToString();
         _textLevelTarget.text = (PlayerPrefs.GetInt("Level") +1).ToString();
     }
     private void FixedUpdate()
     {
+        AmoutDistensTraveled();
     }
+    private void AmoutDistensTraveled()
+    {
+        float amoutDistens = 1 - _distensTraveled / _distens;
+        _levelBar.fillAmount = Mathf.Lerp(_levelBar.fillAmount, amoutDistens, 0.7f);
+    }
+
     public void GameStageWindow(Stage stageGame)
     {
         switch (stageGame)
