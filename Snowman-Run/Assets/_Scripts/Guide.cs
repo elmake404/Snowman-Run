@@ -29,6 +29,7 @@ public class Guide : MonoBehaviour
             {
                 enabled = false;
                 TrafficInspector.Instance.MixingAllSpher(transform.position);
+                GameStage.Instance.ChangeStage(Stage.WinGame);
             }
         }
     }

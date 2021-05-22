@@ -9,17 +9,28 @@ public class CameraMove : MonoBehaviour
     private Vector3 _offset;
     private Vector3 _velocity;
     [SerializeField]
+    private Animator _animator;
+
+    private bool _isFinish;
+    [SerializeField]
     private float _delay=0.2f;
 
     private void Start()
     {
+        _animator.enabled = false;
         _offset = _target.position - transform.position;
     }
     private void FixedUpdate()
     {
-        //if (GameStage.IsGameFlowe)
+        //if (!_isFinish)
         //{
             transform.position = Vector3.SmoothDamp(transform.position,_target.position-_offset,ref _velocity,_delay);
         //}
+    }
+    public void StartAnimation()
+    {
+        _animator.enabled = true;
+        _isFinish = true;
+        _animator.SetBool("End",true);
     }
 }
