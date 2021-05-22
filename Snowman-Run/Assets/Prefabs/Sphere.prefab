@@ -149,6 +149,7 @@ MonoBehaviour:
   _radiusData:
     Min: 0.75
     Max: 1
+  _lifeTimeOnFire: 1.5
   RowNumber: 0
 --- !u!114 &2766662315674648649
 MonoBehaviour:
@@ -5091,6 +5092,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048528237558870157, guid: ed488829d283b884ea977b6dc115d620,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7032766789207238163, guid: ed488829d283b884ea977b6dc115d620,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed488829d283b884ea977b6dc115d620, type: 3}

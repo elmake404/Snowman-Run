@@ -17,10 +17,12 @@ public class BrokenModel : MonoBehaviour
     }
     public void Push(Vector3 direction)
     {
+        float forse=300;
         for (int i = 0; i < _rbBroken.Length; i++)
         {
             _rbBroken[i].gameObject.SetActive(true);
-            _rbBroken[i].AddForce(direction * 500, ForceMode.Acceleration);
+            _rbBroken[i].AddForce(direction * forse, ForceMode.Acceleration);
+            forse *= 2;
         }
     }
 }
