@@ -67,8 +67,8 @@ public class GameStage : MonoBehaviour
                     _canvasManager.GameStageWindow(StageGame);
                     GameStageEvent.InvokeWinLevel();
 
-                    //PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
-                    //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+                    PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
+                    PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
                     IsGameFlowe = false;
 

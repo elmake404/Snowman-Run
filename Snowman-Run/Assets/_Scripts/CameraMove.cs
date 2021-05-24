@@ -13,24 +13,28 @@ public class CameraMove : MonoBehaviour
 
     private bool _isFinish;
     [SerializeField]
-    private float _delay=0.2f;
+    private float _delay = 0.2f;
 
     private void Start()
     {
-        _animator.enabled = false;
+        if (_animator != null)
+            _animator.enabled = false;
         _offset = _target.position - transform.position;
     }
     private void FixedUpdate()
     {
         //if (!_isFinish)
         //{
-            transform.position = Vector3.SmoothDamp(transform.position,_target.position-_offset,ref _velocity,_delay);
+        transform.position = Vector3.SmoothDamp(transform.position, _target.position - _offset, ref _velocity, _delay);
         //}
     }
     public void StartAnimation()
     {
-        _animator.enabled = true;
-        _isFinish = true;
-        _animator.SetBool("End",true);
+        if (_animator != null)
+        {
+            _animator.enabled = true;
+            _isFinish = true;
+            _animator.SetBool("End", true);
+        }
     }
 }
