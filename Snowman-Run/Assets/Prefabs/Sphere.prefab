@@ -36,7 +36,7 @@ Transform:
   - {fileID: 1680959536561723677}
   - {fileID: 2890353292776357511}
   m_Father: {fileID: 1978197541233608395}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8259508583193745075
 MonoBehaviour:
@@ -78,6 +78,50 @@ MonoBehaviour:
   _activeModel: {fileID: 451560648604561128}
   _brokenModel: {fileID: 8249346403171787261}
   _speedRotation: 6
+--- !u!1 &5994143101014288406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3228114526806216286}
+  - component: {fileID: 229498234618072937}
+  m_Layer: 10
+  m_Name: CollderCast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3228114526806216286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994143101014288406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1978197541233608395}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &229498234618072937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994143101014288406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.75, z: 0.75}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8105728142168159656
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,12 +132,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1978197541233608395}
   - component: {fileID: 1972793395544214266}
-  - component: {fileID: 5545934369806521326}
   - component: {fileID: 7073913076210850574}
   - component: {fileID: 2766662315674648649}
   - component: {fileID: 5012335017280549395}
   - component: {fileID: 8307061009492691995}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +154,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3228114526806216286}
   - {fileID: 4330023368670883388}
   - {fileID: 1583847935886866549}
   m_Father: {fileID: 0}
@@ -129,19 +173,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.375
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &5545934369806521326
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8105728142168159656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.525
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7073913076210850574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +188,7 @@ MonoBehaviour:
   _objSpher: {fileID: 8259508583193745075}
   _steem: {fileID: 6740938108582580496}
   _colliderMain: {fileID: 1972793395544214266}
-  "_additional\u0421ollider": {fileID: 5545934369806521326}
+  "_additional\u0421ollider": {fileID: 229498234618072937}
   _modelSpher: {fileID: 9183105408614763882}
   _sphereLife: {fileID: 5012335017280549395}
   _spherMove: {fileID: 2766662315674648649}
@@ -165,7 +196,7 @@ MonoBehaviour:
     Min: 0.75
     Max: 1
   _lifeTimeOnFire: 0.72
-  _additionalRadius: 0.15
+  _additionalRadius: 0.3
   RowNumber: 0
 --- !u!114 &2766662315674648649
 MonoBehaviour:
@@ -240,7 +271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1978197541233608395}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &6740938108582580496
 ParticleSystem:
@@ -17356,6 +17387,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 921ec6057d4764549ac4f144e4b1bff7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17437978cfefc5c4daad4b7c98bfdf61, type: 3}
+--- !u!4 &5891879478345047760 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 650845373539531812, guid: 17437978cfefc5c4daad4b7c98bfdf61,
+    type: 3}
+  m_PrefabInstance: {fileID: 6398609294306845428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7849409552229266195 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3756803796991398375, guid: 17437978cfefc5c4daad4b7c98bfdf61,
@@ -17368,12 +17405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3eb21f9bd453c14285e08bf64256cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5891879478345047760 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 650845373539531812, guid: 17437978cfefc5c4daad4b7c98bfdf61,
-    type: 3}
-  m_PrefabInstance: {fileID: 6398609294306845428}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8030302753969548403
 PrefabInstance:
   m_ObjectHideFlags: 0
