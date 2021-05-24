@@ -15,7 +15,7 @@ public class SpherData : MonoBehaviour
     [SerializeField]
     private ParticleSystem _steem;
     [SerializeField]
-    private SphereCollider _colliderMain;
+    private SphereCollider _colliderMain, _additionalСollider;
     [SerializeField]
     private ModelSpher _modelSpher;
     [SerializeField]
@@ -29,7 +29,7 @@ public class SpherData : MonoBehaviour
     private MassChanger _massChanger;
     private IEnumerator _gameOver;
     [SerializeField]
-    private float _lifeTimeOnFire;
+    private float _lifeTimeOnFire, _additionalRadius;
     public float Radius
 
     { get { return _objSpher.transform.localScale.x / 2; } }
@@ -77,7 +77,6 @@ public class SpherData : MonoBehaviour
     private void ChangeOfSize(float addedSize)
     {
         _objSpher.transform.localScale += Vector3.one * addedSize;
-        _colliderMain.radius = Radius;
 
         if (_objSpher.transform.localScale.x > _radiusData.Max)
         {
@@ -93,7 +92,8 @@ public class SpherData : MonoBehaviour
                 StartCoroutine(_gameOver);
             }
         }
-
+        _colliderMain.radius = Radius;
+        _additionalСollider.radius = Radius + _additionalRadius;
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
     }
     private IEnumerator GameOver()
