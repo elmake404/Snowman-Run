@@ -1914,13 +1914,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.08641016, y: -0.13002956, z: 0.011376116, w: 0.9876721}
-  m_LocalPosition: {x: 2, y: 4, z: -7.02}
+  m_LocalRotation: {x: 0.08682413, y: -0.08682413, z: 0.0075961305, w: 0.99240386}
+  m_LocalPosition: {x: 1.75, y: 4, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1404583552}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 10, y: -15, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: -10, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3817,7 +3817,7 @@ MonoBehaviour:
   - Row: 0
     Count: 
   - Row: 1
-    Count: 0300000004000000
+    Count: 03000000
   - Row: 2
     Count: 
   _additionalSphere:
@@ -3838,10 +3838,10 @@ MonoBehaviour:
     ZPosition: 45
   - Row: 1
     NumberColor: 5
-    ZPosition: 107.9
+    ZPosition: 72.1
   - Row: 2
     NumberColor: 1
-    ZPosition: 93.5
+    ZPosition: 92.11
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
   _trafficInspector: {fileID: 1940933769}
