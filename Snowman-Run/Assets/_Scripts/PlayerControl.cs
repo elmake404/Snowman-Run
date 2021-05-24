@@ -27,14 +27,12 @@ public class PlayerControl : MonoBehaviour
                 {
                     _startPosTouth = _cam.ScreenToViewportPoint(touch.position);
                     Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit[] hit = Physics.RaycastAll(ray);
-                    for (int i = 0; i < hit.Length; i++)
-                    {
-                        if (hit[i].collider.gameObject.layer == 10)
+                    RaycastHit hit ;
+                        if (Physics.Raycast(ray,out hit,100f,_layerMask))
                         {
-                            _spherData = hit[i].collider.GetComponent<SpherData>();
+                        Debug.Log(hit.collider.gameObject.layer);
+                            _spherData = hit.collider.GetComponentInParent<SpherData>();
                         }
-                    }
                 }
                 else if (touch.phase == TouchPhase.Moved)
                 {

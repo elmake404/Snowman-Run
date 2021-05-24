@@ -15,7 +15,9 @@ public class SpherData : MonoBehaviour
     [SerializeField]
     private ParticleSystem _steem;
     [SerializeField]
-    private SphereCollider _colliderMain, _additionalСollider;
+    private SphereCollider _colliderMain;
+    [SerializeField]
+    private BoxCollider _additionalСollider;
     [SerializeField]
     private ModelSpher _modelSpher;
     [SerializeField]
@@ -40,6 +42,11 @@ public class SpherData : MonoBehaviour
 
     public void StoodInARow() => _objSpher.transform.SetParent(null);
     public void OffsetRecordModel() => _objSpher.OffsetRecord();
+    private void Start()
+    {
+        float Size = Radius * 2;
+        _additionalСollider.size = new Vector3(Size + _additionalRadius, Size, Size + _additionalRadius);
+    }
     private void OnTriggerStay(Collider other)
     {
         if (IsRow)
@@ -93,7 +100,8 @@ public class SpherData : MonoBehaviour
             }
         }
         _colliderMain.radius = Radius;
-        _additionalСollider.radius = Radius + _additionalRadius;
+        float Size = Radius * 2;
+        _additionalСollider.size= new Vector3(Size + _additionalRadius, Size, Size + _additionalRadius);
         TrafficInspector.Instance.UpdateRowPosition(RowNumber);
     }
     private IEnumerator GameOver()
