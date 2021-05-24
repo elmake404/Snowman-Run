@@ -30,7 +30,7 @@ public class PlayerControl : MonoBehaviour
                     RaycastHit hit ;
                         if (Physics.Raycast(ray,out hit,100f,_layerMask))
                         {
-                        Debug.Log(hit.collider.gameObject.layer);
+
                             _spherData = hit.collider.GetComponentInParent<SpherData>();
                         }
                 }
