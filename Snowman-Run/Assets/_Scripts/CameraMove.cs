@@ -23,10 +23,10 @@ public class CameraMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //if (!_isFinish)
-        //{
-        transform.position = Vector3.SmoothDamp(transform.position, _target.position - _offset, ref _velocity, _delay);
-        //}
+        if (GameStage.IsGameFlowe|| _animator.enabled)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, _target.position - _offset, ref _velocity, _delay);
+        }
     }
     public void StartAnimation()
     {

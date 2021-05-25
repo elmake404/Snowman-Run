@@ -22,8 +22,8 @@ public class GameStage : MonoBehaviour
     public static GameStage Instance;
 
     private static bool _isGameStart;
-    public static bool IsGameFlowe
-    { get; private set; }
+    public static bool IsGameFlowe;
+    //{ get; private set; }
 
     [SerializeField]
     private CanvasManager _canvasManager;
