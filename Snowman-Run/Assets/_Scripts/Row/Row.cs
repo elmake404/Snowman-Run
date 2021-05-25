@@ -103,8 +103,6 @@ public class Row : MonoBehaviour
         {
             _spherDatas[i].transform.SetParent(GetRowParent(i));
         }
-        //if(IsOnGround)
-        //ModelChange();
     }
     public bool ConteinsSpher(SpherData spher) => _spherDatas.Contains(spher);
     public void InitializationNumber(int number) => RowNumber = number;

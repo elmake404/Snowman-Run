@@ -10,12 +10,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask;
 
-    void Start()
+    private void Start()
     {
         _cam = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         if (GameStage.IsGameFlowe)
         {
@@ -27,12 +27,17 @@ public class PlayerControl : MonoBehaviour
                 {
                     _startPosTouth = _cam.ScreenToViewportPoint(touch.position);
                     Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit hit ;
-                        if (Physics.Raycast(ray,out hit,100f,_layerMask))
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 100f, _layerMask))
+                    {
+                        if (hit.collider.gameObject.layer==11)
                         {
 
-                            _spherData = hit.collider.GetComponentInParent<SpherData>();
+                            _spherData = TrafficInspector.Instance.GetFirstSphereOfRow(hit.collider.GetComponentInParent<Row>().RowNumber);
                         }
+                        else
+                        _spherData = hit.collider.GetComponentInParent<SpherData>();
+                    }
                 }
                 else if (touch.phase == TouchPhase.Moved)
                 {
