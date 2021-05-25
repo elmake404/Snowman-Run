@@ -15,7 +15,7 @@ public class GameContinue : MonoBehaviour
             }
             else
             {
-                PlayerPrefs.SetInt("Scenes", 1);
+                PlayerPrefs.SetInt("Scenes", 2);
                 PlayerPrefs.SetInt("Level", 1);
 
                 SceneManager.LoadScene(PlayerPrefs.GetInt("Scenes"));
