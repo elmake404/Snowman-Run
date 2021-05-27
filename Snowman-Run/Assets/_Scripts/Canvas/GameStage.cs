@@ -57,6 +57,9 @@ public class GameStage : MonoBehaviour
             case Stage.StartLevel:
 
                 _canvasManager.GameStageWindow(StageGame);
+                FacebookManager.Instance.LevelStart(PlayerPrefs.GetInt("Level"));
+                AppMetricaEvent.LevelStart(PlayerPrefs.GetInt("Level"));
+
                 GameStageEvent.InvokeStartLevel();
                 IsGameFlowe = true;
                 break;
@@ -66,6 +69,8 @@ public class GameStage : MonoBehaviour
                 {
                     _canvasManager.GameStageWindow(StageGame);
                     GameStageEvent.InvokeWinLevel();
+                    FacebookManager.Instance.LevelWin(PlayerPrefs.GetInt("Level"));
+                    AppMetricaEvent.LevelFinish(PlayerPrefs.GetInt("Level"));
 
                     PlayerPrefs.SetInt("Scenes", PlayerPrefs.GetInt("Scenes") + 1);
                     PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);

@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1404583552}
-  _animator: {fileID: 0}
+  _animator: {fileID: 963194231}
   _delay: 0.2
 --- !u!95 &963194231
 Animator:
