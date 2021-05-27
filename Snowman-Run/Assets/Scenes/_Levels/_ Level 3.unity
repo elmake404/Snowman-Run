@@ -1834,7 +1834,7 @@ PrefabInstance:
     - target: {fileID: 929041287765784911, guid: a51532ae4468ba8439b0599c1f04927f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a51532ae4468ba8439b0599c1f04927f, type: 3}
@@ -3478,6 +3478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1401342752598832, guid: 0a5977a41716af548a57df5683b8ff56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224686921106952662, guid: 0a5977a41716af548a57df5683b8ff56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4974,7 +4978,7 @@ MonoBehaviour:
     ZPosition: 25.35
   - Row: 0
     NumberColor: 2
-    ZPosition: 34.4
+    ZPosition: 29.42
   - Row: 0
     NumberColor: 3
     ZPosition: 58.1
@@ -4987,6 +4991,9 @@ MonoBehaviour:
   - Row: 2
     NumberColor: 1
     ZPosition: 93.5
+  - Row: 0
+    NumberColor: 1
+    ZPosition: 75.87
   _spherDataPrefabs: {fileID: 7073913076210850574, guid: 0f9beb60d488f794887479e0232901ea,
     type: 3}
   _trafficInspector: {fileID: 1940933769}
